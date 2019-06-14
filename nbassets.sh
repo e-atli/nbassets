@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Creating Netbox Assets"
 echo "======================"
@@ -8,22 +8,24 @@ echo
 
 echo "Searching Manufacturers"
 echo "======================="
-find . -name mf_*.sh
+find . -name mf_*
 echo
 
-for i in $(find . -name mf_*.sh);
+for i in $(find . -name mf_*);
 do
   echo "Processing $i..."
-  ./$i > /dev/null 2>&1
+  source $i > /dev/null 2>&1
 done
+
+exit
 
 echo
 echo "Searching Device Types"
 echo "======================"
-find . -name dt_*.sh
+find . -name dt_*
 echo
 
-for i in $(find . -name dt_*.sh);
+for i in $(find . -name dt_*);
 do
   echo "Processing $i..."
   ./$i > /dev/null 2>&1
