@@ -1,5 +1,3 @@
-#!/bin/sh
-
 python3 $NETBOX_PATH/manage.py nbshell <<EOF
 
 manufacturer_id = Manufacturer.objects.get(slug="dell-emc").id
@@ -7,7 +5,6 @@ manufacturer_id = Manufacturer.objects.get(slug="dell-emc").id
 DeviceType(slug="poweredge-r740", manufacturer_id=manufacturer_id).save()
 
 DeviceType = DeviceType.objects.get(slug="poweredge-r740")
-
 DeviceType.model="PowerEdge R740"
 DeviceType.u_height="2"
 DeviceType.is_full_height=True
@@ -16,7 +13,12 @@ DeviceType.save()
 PowerPortTemplate(device_type_id=DeviceType.id, name="PS1").save()
 PowerPortTemplate(device_type_id=DeviceType.id, name="PS2").save()
 
-InterfaceTemplate(device_type_id=DeviceType.id, form_factor="1000", mgmt_only=True, name="iDRAC").save()
+InterfaceTemplate(device_type_id=DeviceType.id, name="iDRAC").save
+
+InterfaceTemplate = InterfaceTemplate.objects.get(device_type_id=DeviceType.id, name="iDRAC")
+InterfaceTemplate.form_factor="1000"
+InterfaceTemplate.mgmt_only=True
+InterfaceTemplate.save()
 
 quit()
 EOF

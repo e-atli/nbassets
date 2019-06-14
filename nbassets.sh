@@ -28,5 +28,5 @@ echo
 for i in $(find . -name dt_*);
 do
   echo "Processing $i..."
-  ./$i > /dev/null 2>&1
+  source $i > /dev/null 2>&1
 done
