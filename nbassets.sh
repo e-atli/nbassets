@@ -2,8 +2,6 @@
 
 echo "Creating Netbox Assets"
 echo "======================"
-echo
-
 export NETBOX_PATH="/opt/netbox/netbox"
 echo "Netbox Path: $NETBOX_PATH"
 echo
