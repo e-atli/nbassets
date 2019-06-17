@@ -17,8 +17,6 @@ do
   source $i > /dev/null 2>&1
 done
 
-exit
-
 echo
 echo "Searching Device Types"
 echo "======================"
