@@ -1,0 +1,2 @@
+SLUG = "hpe"
+NAME = "HPE"

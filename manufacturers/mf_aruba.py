@@ -1,0 +1,2 @@
+SLUG = "aruba"
+NAME = "Aruba"
