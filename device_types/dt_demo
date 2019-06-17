@@ -1,12 +1,8 @@
-MANUFACTURER_ID = Manufacturer.objects.get(slug="dell-emc").id
-
-DeviceType(slug="dell-emc", manufacturer_id=MANUFACTURER_ID).save()
-
-NEW_DEVICE_TYPE = DeviceType.objects.get(slug="dell-emc")
-NEW_DEVICE_TYPE.model = "PowerEdge R320"
-NEW_DEVICE_TYPE.u_height = "1"
-NEW_DEVICE_TYPE.is_full_height = True
-NEW_DEVICE_TYPE.save()
+MFGSLUG = "demo"
+SLUG = "demo-device-type"
+MODEL = "Demo Device Type"
+U_HEIGHT = "2"
+IS_FULL_HEIGHT = True
 
 PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS1").save()
 PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS2").save()

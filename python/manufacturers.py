@@ -10,6 +10,10 @@ for filename in Path('manufacturers').glob('**/mf_*'):
     try:
         Manufacturer(slug=SLUG, name=NAME).save()
     except:
-        print("!!! Manufacturer slug >"+SLUG+"< exists")
+        pass
+    try:
+        filename.close
+    except:
+        pass
 
 quit()

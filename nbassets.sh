@@ -8,18 +8,21 @@ echo
 
 echo "Searching Manufacturers"
 echo "======================="
-find . -name mf_*
+find manufacturers -name mf_*
 echo
-python3 $NETBOX_PATH/manage.py nbshell <python/manufacturers.py
+echo "Processing..."
+#python3 $NETBOX_PATH/manage.py nbshell <python/manufacturers.py
+python3 $NETBOX_PATH/manage.py nbshell <python/manufacturers.py > /dev/null 2>&1
 
 echo
 echo "Searching Device Types"
 echo "======================"
-find . -name dt_*
+find device_types -name dt_*
 echo
+echo "Processing..."
+#python3 $NETBOX_PATH/manage.py nbshell <python/device_types.py
+python3 $NETBOX_PATH/manage.py nbshell <python/device_types.py > /dev/null 2>&1
 
-for i in $(find . -name dt_*);
-do
-  echo "Processing $i..."
-  source $i > /dev/null 2>&1
-done
+echo
+echo "Done."
+
