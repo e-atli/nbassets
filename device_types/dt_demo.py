@@ -1,8 +1,8 @@
 MFGSLUG = "demo"
 SLUG = "demo-device-type"
 MODEL = "Demo Device Type"
-U_HEIGHT = "2"
-IS_FULL_HEIGHT = True
+U_HEIGHT = "88"
+IS_FULL_DEPTH = True
 
 PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS1").save()
 PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS2").save()
