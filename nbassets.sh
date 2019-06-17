@@ -10,12 +10,7 @@ echo "Searching Manufacturers"
 echo "======================="
 find . -name mf_*
 echo
-
-for i in $(find . -name mf_*);
-do
-  echo "Processing $i..."
-  source $i > /dev/null 2>&1
-done
+python3 $NETBOX_PATH/manage.py nbshell <python/manufacturers.py
 
 echo
 echo "Searching Device Types"
