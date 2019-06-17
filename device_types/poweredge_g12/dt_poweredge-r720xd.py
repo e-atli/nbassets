@@ -1,12 +1,8 @@
-MANUFACTURER_ID = Manufacturer.objects.get(slug="dell-emc").id
-
-DeviceType(slug="poweredge-r720xd", manufacturer_id=MANUFACTURER_ID).save()
-
-NEW_DEVICE_TYPE = DeviceType.objects.get(slug="poweredge-r720xd")
-NEW_DEVICE_TYPE.model = "PowerEdge R720xd"
-NEW_DEVICE_TYPE.u_height = "2"
-NEW_DEVICE_TYPE.is_full_height = True
-NEW_DEVICE_TYPE.save()
+MFGSLUG = "dell-emc"
+SLUG = "poweredge-r720xd"
+MODEL = "PowerEdge R720xd"
+U_HEIGHT = "2"
+IS_FULL_HEIGHT = True
 
 PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS1").save()
 PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS2").save()

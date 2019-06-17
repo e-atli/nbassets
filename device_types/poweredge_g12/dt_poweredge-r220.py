@@ -2,7 +2,7 @@ MFGSLUG = "dell-emc"
 SLUG = "poweredge-r220"
 MODEL = "PowerEdge R220"
 U_HEIGHT = "1"
-FULL_HEIGHT = True
+IS_FULL_DEPTH = True
 
 PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS1").save()
 PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS2").save()

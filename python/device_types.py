@@ -4,7 +4,7 @@ import glob
 from pathlib import Path
 
 for filename in Path('device_types').glob('**/dt_*'):
-    IS_FULL_HEIGHT = False
+    IS_FULL_DEPTH = False
     MANUFACTURER_ID = ''
     MFGSLUG = ''
     NEW_DEVICE_TYPE = ''
@@ -32,8 +32,8 @@ for filename in Path('device_types').glob('**/dt_*'):
             if (line.startswith('U_HEIGHT')) :
                 NEW_DEVICE_TYPE.u_height = U_HEIGHT
                 NEW_DEVICE_TYPE.save()
-            if (line.startswith('IS_FULL_HEIGHT')) :
-                NEW_DEVICE_TYPE.is_full_height = True
+            if (line.startswith('IS_FULL_DEPTH')) :
+                NEW_DEVICE_TYPE.is_full_depth = True
                 NEW_DEVICE_TYPE.save()
             line = fp.readline()
     try:

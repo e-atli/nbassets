@@ -1,12 +1,8 @@
-manufacturer_id = Manufacturer.objects.get(slug="dell-emc").id
-
-DeviceType(slug="poweredge-r820", manufacturer_id=manufacturer_id).save()
-
-DeviceType = DeviceType.objects.get(slug="poweredge-r820")
-DeviceType.model="PowerEdge R820"
-DeviceType.u_height="2"
-DeviceType.is_full_height=True
-DeviceType.save()
+MFGSLUG = "dell-emc"
+SLUG = "poweredge-r820"
+MODEL = "PowerEdge R820"
+U_HEIGHT = "2"
+IS_FULL_DEPTH = True
 
 PowerPortTemplate(device_type_id=DeviceType.id, name="PS1").save()
 PowerPortTemplate(device_type_id=DeviceType.id, name="PS2").save()

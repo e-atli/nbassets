@@ -1,12 +1,8 @@
-manufacturer_id = Manufacturer.objects.get(slug="dell-emc").id
-
-DeviceType(slug="poweredge-r520", manufacturer_id=manufacturer_id).save()
-
-DeviceType = DeviceType.objects.get(slug="poweredge-r520")
-DeviceType.model="PowerEdge R520"
-DeviceType.u_height="2"
-DeviceType.is_full_height=True
-DeviceType.save()
+MFGSLUG = "dell-emc"
+SLUG = "poweredge-r520"
+MODEL = "PowerEdge R520"
+U_HEIGHT = "2"
+IS_FULL_HEIGHT = True
 
 PowerPortTemplate(device_type_id=DeviceType.id, name="PS1").save()
 PowerPortTemplate(device_type_id=DeviceType.id, name="PS2").save()
