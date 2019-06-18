@@ -10,7 +10,6 @@ for filename in Path('device_roles').glob('**/dr_*'):
         while line:
             if (line.startswith('SLUG')) :
                 try:
-                    print(line)
                     exec(line)
                     DeviceRole.objects.get(slug=SLUG).delete()
                 except:
