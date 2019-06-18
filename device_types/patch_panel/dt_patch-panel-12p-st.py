@@ -4,19 +4,42 @@ MODEL = "Patch panel 12x ST Port"
 U_HEIGHT = "1"
 IS_FULL_DEPTH = False
 
-RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 1").save()
-RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port [2-5]").save()
+RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 1/2").save()
+RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 3/4").save()
+RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 5/6").save()
+RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 7/8").save()
+RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 9/10").save()
+RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 11/12").save()
 
-NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 1")
+NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 1/2")
 NEW_REAR_PORT_TEMPLATE.type = "2000"
 NEW_REAR_PORT_TEMPLATE.positions = "1"
 NEW_REAR_PORT_TEMPLATE.save()
 
-NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port [2-5]")
+NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 3/4")
 NEW_REAR_PORT_TEMPLATE.type = "2000"
-NEW_REAR_PORT_TEMPLATE.positions = "4"
+NEW_REAR_PORT_TEMPLATE.positions = "1"
 NEW_REAR_PORT_TEMPLATE.save()
 
+NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 5/6")
+NEW_REAR_PORT_TEMPLATE.type = "2000"
+NEW_REAR_PORT_TEMPLATE.positions = "1"
+NEW_REAR_PORT_TEMPLATE.save()
+
+NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 7/8")
+NEW_REAR_PORT_TEMPLATE.type = "2000"
+NEW_REAR_PORT_TEMPLATE.positions = "1"
+NEW_REAR_PORT_TEMPLATE.save()
+
+NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 9/10")
+NEW_REAR_PORT_TEMPLATE.type = "2000"
+NEW_REAR_PORT_TEMPLATE.positions = "1"
+NEW_REAR_PORT_TEMPLATE.save()
+
+NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 11/12")
+NEW_REAR_PORT_TEMPLATE.type = "2000"
+NEW_REAR_PORT_TEMPLATE.positions = "1"
+NEW_REAR_PORT_TEMPLATE.save()
 
 #PORT_TYPE_8P8C = 1000
 #PORT_TYPE_110_PUNCH = 1100
