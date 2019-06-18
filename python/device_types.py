@@ -54,6 +54,14 @@ for filename in Path('device_types').glob('**/dt_*'):
                     NEW_FRONT_PORT_TEMPLATE.save()
                 except:
                     pass
+            if (line.startswith('R_F_PORT_TYPE')) :
+                try:
+                    NEW_REAR_PORT_TEMPLATE.type = R_F_PORT_TYPE
+                    NEW_REAR_PORT_TEMPLATE.save()
+                    NEW_FRONT_PORT_TEMPLATE.type = R_F_PORT_TYPE
+                    NEW_FRONT_PORT_TEMPLATE.save()
+                except:
+                    pass
             line = fp.readline()
     try:
         filename.close
