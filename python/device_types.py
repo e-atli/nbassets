@@ -4,9 +4,12 @@ import glob
 from pathlib import Path
 
 for filename in Path('device_types').glob('**/dt_*'):
+    IFACE_FORM_FACTOR = ''
+    INTERFACE = ''
     IS_FULL_DEPTH = False
     MANUFACTURER_ID = ''
     MFGSLUG = ''
+    MODEL = ''
     NEW_DEVICE_TYPE = ''
     POWER_OUTLET = ''
     POWER_PORT = ''
@@ -22,34 +25,34 @@ for filename in Path('device_types').glob('**/dt_*'):
                 exec(line)
             except:
                 pass
-            if (line.startswith('MFGSLUG')) :
-                MANUFACTURER_ID = Manufacturer.objects.get(slug=MFGSLUG).id
-            if (line.startswith('SLUG')) :
+            if (line.startswith('INTERFACE')) :
                 try:
-                    DeviceType(slug=SLUG, manufacturer_id=MANUFACTURER_ID).save()
+                    NEW_INTERFACE_TEMPLATE = InterfaceTemplate()
+                    NEW_INTERFACE_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
+                    NEW_INTERFACE_TEMPLATE.name = INTERFACE
+                    NEW_INTERFACE_TEMPLATE.form_factor = IFACE_FORM_FACTOR
+                    NEW_INTERFACE_TEMPLATE.save()
                 except:
                     pass
-                NEW_DEVICE_TYPE = DeviceType.objects.get(slug=SLUG)
+            if (line.startswith('IS_FULL_DEPTH')) :
+                NEW_DEVICE_TYPE.is_full_depth = IS_FULL_DEPTH
+                NEW_DEVICE_TYPE.save()
+            if (line.startswith('MFGSLUG')) :
+                MANUFACTURER_ID = Manufacturer.objects.get(slug=MFGSLUG).id
             if (line.startswith('MODEL')) :
                 NEW_DEVICE_TYPE.model = MODEL
                 NEW_DEVICE_TYPE.save()
             if (line.startswith('PART_NUMBER')):
                 NEW_DEVICE_TYPE.part_number = PART_NUMBER
                 NEW_DEVICE_TYPE.save()
-            if (line.startswith('U_HEIGHT')) :
-                NEW_DEVICE_TYPE.u_height = U_HEIGHT
-                NEW_DEVICE_TYPE.save()
-            if (line.startswith('IS_FULL_DEPTH')) :
-                NEW_DEVICE_TYPE.is_full_depth = IS_FULL_DEPTH
-                NEW_DEVICE_TYPE.save()
-            if (line.startswith('POWER_PORT')) :
-                try:
-                    PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name=POWER_PORT).save()
-                except:
-                    pass
             if (line.startswith('POWER_OUTLET')) :
                 try:
                     PowerOutletTemplate(device_type_id=NEW_DEVICE_TYPE.id, name=POWER_OUTLET).save()
+                except:
+                    pass
+            if (line.startswith('POWER_PORT')) :
+                try:
+                    PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name=POWER_PORT).save()
                 except:
                     pass
             if (line.startswith('R_F_PORT')) :
@@ -69,6 +72,15 @@ for filename in Path('device_types').glob('**/dt_*'):
                     NEW_FRONT_PORT_TEMPLATE.save()
                 except:
                     pass
+            if (line.startswith('SLUG')) :
+                try:
+                    DeviceType(slug=SLUG, manufacturer_id=MANUFACTURER_ID).save()
+                except:
+                    pass
+                NEW_DEVICE_TYPE = DeviceType.objects.get(slug=SLUG)
+            if (line.startswith('U_HEIGHT')) :
+                NEW_DEVICE_TYPE.u_height = U_HEIGHT
+                NEW_DEVICE_TYPE.save()
             line = fp.readline()
     try:
         filename.close
