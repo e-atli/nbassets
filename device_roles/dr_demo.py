@@ -1,6 +1,6 @@
 SLUG = 'demo'
 NAME = 'Demo Role'
-COLOR = '2196f3'
+COLOR = '000000'
 VM_ROLE = True
 
 #    'teal': '009688',

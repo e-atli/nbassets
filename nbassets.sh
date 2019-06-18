@@ -34,4 +34,3 @@ python3 $NETBOX_PATH/manage.py nbshell <python/device_roles.py > /dev/null 2>&1
 
 echo
 echo "Done."
-
