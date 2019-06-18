@@ -1,8 +1,8 @@
 MFGSLUG = "apc"
-SLUG = "smart-ups-srt-5000-va"
-MODEL = "Smart-UPS SRT 5000 VA"
-PART_NUMBER = "SRT5KRMXLI"
-U_HEIGHT = "3"
+SLUG = "smart-ups-srt-3000-va"
+MODEL = "Smart-UPS SRT 3000 VA"
+PART_NUMBER = "SRT3000RMXLI"
+U_HEIGHT = "2"
 IS_FULL_DEPTH = True
 
 POWER_OUTLET = "GRP1_1_C19"
