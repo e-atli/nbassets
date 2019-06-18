@@ -1,6 +1,6 @@
 MFGSLUG = "generic"
 SLUG = "patch-panel-12p-st"
-MODEL = "Patch panel 12x ST Port"
+MODEL = "Patch Panel 12 Ports ST"
 U_HEIGHT = "1"
 IS_FULL_DEPTH = False
 
