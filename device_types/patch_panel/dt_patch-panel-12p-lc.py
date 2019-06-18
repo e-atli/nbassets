@@ -4,7 +4,8 @@ MODEL = "Patch Panel 12 Ports LC"
 U_HEIGHT = "1"
 IS_FULL_DEPTH = False
 
-R_F_PORT_TYPE = "2300"
+# 12x LC-Port
+R_F_TYPE = "2300"
 R_F_PORT = "Port 1"
 R_F_PORT = "Port 2"
 R_F_PORT = "Port 3"
