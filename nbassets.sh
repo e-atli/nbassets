@@ -20,8 +20,8 @@ echo "======================"
 find device_types -name dt_*
 echo
 echo "Processing..."
-#python3 $NETBOX_PATH/manage.py nbshell <python/device_types.py
-python3 $NETBOX_PATH/manage.py nbshell <python/device_types.py > /dev/null 2>&1
+python3 $NETBOX_PATH/manage.py nbshell <python/device_types.py
+#python3 $NETBOX_PATH/manage.py nbshell <python/device_types.py > /dev/null 2>&1
 
 echo
 echo "Searching Device Roles"
