@@ -1,3 +1,4 @@
-SLUG = "firewall"
-NAME = "Firewall"
-COLOR = "FF0000"
+SLUG = 'firewall'
+NAME = 'Firewall'
+COLOR = '009688'
+VM_ROLE = True

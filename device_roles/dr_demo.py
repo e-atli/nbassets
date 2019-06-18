@@ -1,6 +1,7 @@
 SLUG = 'demo'
 NAME = 'Demo Role'
 COLOR = '2196f3'
+VM_ROLE = True
 
 #    'teal': '009688',
 #    'green': '4caf50',

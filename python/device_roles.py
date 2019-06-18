@@ -8,6 +8,7 @@ for filename in Path('device_roles').glob('**/dr_*'):
     NAME = ''
     NEW_DEVICE_ROLE = ''
     SLUG = ''
+	VM_ROLE = False
     with filename.open() as fp:
         line = fp.readline()
         while line:
@@ -27,6 +28,9 @@ for filename in Path('device_roles').glob('**/dr_*'):
                 NEW_DEVICE_ROLE.save()
             if (line.startswith('NAME')) :
                 NEW_DEVICE_ROLE.name = NAME
+                NEW_DEVICE_ROLE.save()
+            if (line.startswith('VM_ROLE')) :
+                NEW_DEVICE_ROLE.name = VM_ROLE
                 NEW_DEVICE_ROLE.save()
             line = fp.readline()
     try:
