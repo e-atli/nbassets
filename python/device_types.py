@@ -4,7 +4,7 @@ import glob
 from pathlib import Path
 
 for filename in Path('device_types').glob('**/dt_*'):
-    IFACE_FORM_FACTOR = ''
+    IFACE_FF = ''
     INTERFACE = ''
     IS_FULL_DEPTH = False
     MANUFACTURER_ID = ''
@@ -30,7 +30,7 @@ for filename in Path('device_types').glob('**/dt_*'):
                     NEW_INTERFACE_TEMPLATE = InterfaceTemplate()
                     NEW_INTERFACE_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
                     NEW_INTERFACE_TEMPLATE.name = INTERFACE
-                    NEW_INTERFACE_TEMPLATE.form_factor = IFACE_FORM_FACTOR
+                    NEW_INTERFACE_TEMPLATE.form_factor = IFACE_FF
                     NEW_INTERFACE_TEMPLATE.save()
                 except:
                     pass
