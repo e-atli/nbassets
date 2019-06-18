@@ -32,6 +32,9 @@ for filename in Path('device_types').glob('**/dt_*'):
             if (line.startswith('MODEL')) :
                 NEW_DEVICE_TYPE.model = MODEL
                 NEW_DEVICE_TYPE.save()
+            if (line.startswith('PART_NUMBER')):
+                NEW_DEVICE_TYPE.part_number = PART_NUMBER
+                NEW_DEVICE_TYPE.save()
             if (line.startswith('U_HEIGHT')) :
                 NEW_DEVICE_TYPE.u_height = U_HEIGHT
                 NEW_DEVICE_TYPE.save()

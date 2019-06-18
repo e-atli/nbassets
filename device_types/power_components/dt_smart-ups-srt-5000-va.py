@@ -1,0 +1,9 @@
+MFGSLUG = "apc"
+SLUG = "smart-ups-srt-5000-va"
+MODEL = "Smart-UPS SRT 5000 VA"
+PART_NUMBER = "SRT5KRMXLI"
+U_HEIGHT = "3"
+IS_FULL_DEPTH = True
+
+POWER_PORT = "PS1"
+POWER_PORT = "PS2"
