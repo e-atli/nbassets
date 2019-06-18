@@ -38,17 +38,20 @@ for filename in Path('device_types').glob('**/dt_*'):
                 NEW_DEVICE_TYPE.is_full_depth = True
                 NEW_DEVICE_TYPE.save()
             if (line.startswith('R_F_PORT')) :
-                NEW_REAR_PORT_TEMPLATE = RearPortTemplate()
-                NEW_REAR_PORT_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
-                NEW_REAR_PORT_TEMPLATE.name = R_F_PORT
-                NEW_REAR_PORT_TEMPLATE.positions = "1"
-                NEW_REAR_PORT_TEMPLATE.save()
-                NEW_FRONT_PORT_TEMPLATE = FrontPortTemplate()
-                NEW_FRONT_PORT_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
-                NEW_FRONT_PORT_TEMPLATE.name = R_F_PORT
-                NEW_FRONT_PORT_TEMPLATE.rear_port_id = NEW_REAR_PORT_TEMPLATE.id
-                NEW_FRONT_PORT_TEMPLATE.rear_port_position = "1"
-                NEW_FRONT_PORT_TEMPLATE.save()
+                try:
+                    NEW_REAR_PORT_TEMPLATE = RearPortTemplate()
+                    NEW_REAR_PORT_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
+                    NEW_REAR_PORT_TEMPLATE.name = R_F_PORT
+                    NEW_REAR_PORT_TEMPLATE.positions = "1"
+                    NEW_REAR_PORT_TEMPLATE.save()
+                    NEW_FRONT_PORT_TEMPLATE = FrontPortTemplate()
+                    NEW_FRONT_PORT_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
+                    NEW_FRONT_PORT_TEMPLATE.name = R_F_PORT
+                    NEW_FRONT_PORT_TEMPLATE.rear_port_id = NEW_REAR_PORT_TEMPLATE.id
+                    NEW_FRONT_PORT_TEMPLATE.rear_port_position = "1"
+                    NEW_FRONT_PORT_TEMPLATE.save()
+                except:
+                    pass
             line = fp.readline()
     try:
         filename.close
