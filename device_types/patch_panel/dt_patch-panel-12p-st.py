@@ -16,6 +16,8 @@ NEW_REAR_PORT_TEMPLATE.type = "2000"
 NEW_REAR_PORT_TEMPLATE.positions = "1"
 NEW_REAR_PORT_TEMPLATE.save()
 
+FrontPortTemplate(rear_port_id=NEW_REAR_PORT_TEMPLATE.id, name="Port 1/2", rear_port_position=1, type=2000).save()
+
 NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 3/4")
 NEW_REAR_PORT_TEMPLATE.type = "2000"
 NEW_REAR_PORT_TEMPLATE.positions = "1"
@@ -62,3 +64,15 @@ NEW_REAR_PORT_TEMPLATE.save()
 # |  name = <django.db.models.query_utils.DeferredAttribute object>
 # |  positions = <django.db.models.query_utils.DeferredAttribute object>
 # |  type = <django.db.models.query_utils.DeferredAttribute object>
+
+
+
+ #|  device_type_id = <django.db.models.query_utils.DeferredAttribute object>
+ #|  get_type_display = _method(self, *, field=<django.db.models.fields.PositiveSmallIntegerField: type>)
+ #|
+ #|  id = <django.db.models.query_utils.DeferredAttribute object>
+ #|  name = <django.db.models.query_utils.DeferredAttribute object>
+ #|  rear_port_id = <django.db.models.query_utils.DeferredAttribute object>
+ #|  rear_port_position = <django.db.models.query_utils.DeferredAttribute object>
+ #|  type = <django.db.models.query_utils.DeferredAttribute object>
+ 
