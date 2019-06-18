@@ -8,6 +8,8 @@ for filename in Path('device_types').glob('**/dt_*'):
     MANUFACTURER_ID = ''
     MFGSLUG = ''
     NEW_DEVICE_TYPE = ''
+    R_F_PORT = ''
+    R_F_PORT_TYPE = ''
     SLUG = ''
     U_HEIGHT = '1'
     with filename.open() as fp:
@@ -35,6 +37,18 @@ for filename in Path('device_types').glob('**/dt_*'):
             if (line.startswith('IS_FULL_DEPTH')) :
                 NEW_DEVICE_TYPE.is_full_depth = True
                 NEW_DEVICE_TYPE.save()
+            if (line.startswith('R_F_PORT')) :
+                NEW_REAR_PORT_TEMPLATE = RearPortTemplate()
+                NEW_REAR_PORT_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
+                NEW_REAR_PORT_TEMPLATE.name = R_F_PORT
+                NEW_REAR_PORT_TEMPLATE.positions = "1"
+                NEW_REAR_PORT_TEMPLATE.save()
+                NEW_FRONT_PORT_TEMPLATE = FrontPortTemplate()
+                NEW_FRONT_PORT_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
+                NEW_FRONT_PORT_TEMPLATE.name = R_F_PORT
+                NEW_FRONT_PORT_TEMPLATE.rear_port_id = NEW_REAR_PORT_TEMPLATE.id
+                NEW_FRONT_PORT_TEMPLATE.rear_port_position = "1"
+                NEW_FRONT_PORT_TEMPLATE.save()
             line = fp.readline()
     try:
         filename.close
