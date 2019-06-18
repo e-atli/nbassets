@@ -35,7 +35,7 @@ for filename in Path('device_types').glob('**/dt_*'):
                 NEW_DEVICE_TYPE.u_height = U_HEIGHT
                 NEW_DEVICE_TYPE.save()
             if (line.startswith('IS_FULL_DEPTH')) :
-                NEW_DEVICE_TYPE.is_full_depth = True
+                NEW_DEVICE_TYPE.is_full_depth = IS_FULL_DEPTH
                 NEW_DEVICE_TYPE.save()
             if (line.startswith('R_F_PORT')) :
                 try:
