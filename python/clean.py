@@ -41,7 +41,7 @@ for filename in Path('manufacturers').glob('**/mf_*'):
             if (line.startswith('SLUG')) :
                 try:
                     exec(line)
-                    Manufacturers.objects.get(slug=SLUG).delete()
+                    Manufacturer.objects.get(slug=SLUG).delete()
                 except:
                     pass
             line = fp.readline()
