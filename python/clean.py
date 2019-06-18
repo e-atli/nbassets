@@ -8,16 +8,12 @@ for filename in Path('device_roles').glob('**/dr_*'):
     with filename.open() as fp:
         line = fp.readline()
         while line:
-            try:
-                exec(line)
-            except:
-                pass
             if (line.startswith('SLUG')) :
                 try:
+                    exec(line)
                     DeviceRole(slug=SLUG).delete()
                 except:
                     pass
-                NEW_DEVICE_ROLE = DeviceRole.objects.get(slug=SLUG)
             line = fp.readline()
     try:
         filename.close
@@ -29,12 +25,9 @@ for filename in Path('device_types').glob('**/dt_*'):
     with filename.open() as fp:
         line = fp.readline()
         while line:
-            try:
-                exec(line)
-            except:
-                pass
             if (line.startswith('SLUG')) :
                 try:
+                    exec(line)
                     DeviceType(slug=SLUG).delete()
                 except:
                     pass
