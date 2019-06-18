@@ -1,3 +1,3 @@
 SLUG = "firewall"
 NAME = "Firewall"
-COLOR = "red"
+COLOR = "FF0000"
