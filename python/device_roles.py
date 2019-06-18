@@ -8,7 +8,7 @@ for filename in Path('device_roles').glob('**/dr_*'):
     NAME = ''
     NEW_DEVICE_ROLE = ''
     SLUG = ''
-	VM_ROLE = False
+    VM_ROLE = False
     with filename.open() as fp:
         line = fp.readline()
         while line:
