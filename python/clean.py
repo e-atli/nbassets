@@ -12,7 +12,7 @@ for filename in Path('device_roles').glob('**/dr_*'):
                 try:
                     print(line)
                     exec(line)
-                    DeviceRole(slug=SLUG).delete()
+                    DeviceRole.objects.get(slug=SLUG).delete()
                 except:
                     pass
             line = fp.readline()
@@ -29,7 +29,7 @@ for filename in Path('device_roles').glob('**/dr_*'):
 #            if (line.startswith('SLUG')) :
 #                try:
 #                    exec(line)
-#                    DeviceType(slug=SLUG).delete()
+#                    DeviceType.objects.get(slug=SLUG).delete()
 #                except:
 #                    pass
 
