@@ -12,7 +12,7 @@ RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 9/10").save()
 RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 11/12").save()
 
 NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 1/2")
-NEW_REAR_PORT_TEMPLATE.type = "2000'
+NEW_REAR_PORT_TEMPLATE.type = "2000"
 NEW_REAR_PORT_TEMPLATE.positions = "1"
 NEW_REAR_PORT_TEMPLATE.save()
 
