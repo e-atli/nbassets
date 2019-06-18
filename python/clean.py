@@ -10,6 +10,7 @@ for filename in Path('device_roles').glob('**/dr_*'):
         while line:
             if (line.startswith('SLUG')) :
                 try:
+                    print(line)
                     exec(line)
                     DeviceRole(slug=SLUG).delete()
                 except:
@@ -20,16 +21,16 @@ for filename in Path('device_roles').glob('**/dr_*'):
     except:
         pass
 
-for filename in Path('device_types').glob('**/dt_*'):
-    SLUG = ''
-    with filename.open() as fp:
-        line = fp.readline()
-        while line:
-            if (line.startswith('SLUG')) :
-                try:
-                    exec(line)
-                    DeviceType(slug=SLUG).delete()
-                except:
-                    pass
+#for filename in Path('device_types').glob('**/dt_*'):
+#    SLUG = ''
+#    with filename.open() as fp:
+#        line = fp.readline()
+#        while line:
+#            if (line.startswith('SLUG')) :
+#                try:
+#                    exec(line)
+#                    DeviceType(slug=SLUG).delete()
+#                except:
+#                    pass
 
 quit()
