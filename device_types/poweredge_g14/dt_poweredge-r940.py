@@ -4,8 +4,8 @@ MODEL = "PowerEdge R940"
 U_HEIGHT = "4"
 IS_FULL_DEPTH = True
 
-PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS1").save()
-PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="PS2").save()
+POWER_PORT = "PS1"
+POWER_PORT = "PS2"
 
 InterfaceTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="iDRAC").save()
 

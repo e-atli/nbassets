@@ -8,6 +8,7 @@ for filename in Path('device_types').glob('**/dt_*'):
     MANUFACTURER_ID = ''
     MFGSLUG = ''
     NEW_DEVICE_TYPE = ''
+    POWER_PORT = ''
     R_F_PORT = ''
     R_F_TYPE = ''
     SLUG = ''
@@ -37,6 +38,11 @@ for filename in Path('device_types').glob('**/dt_*'):
             if (line.startswith('IS_FULL_DEPTH')) :
                 NEW_DEVICE_TYPE.is_full_depth = IS_FULL_DEPTH
                 NEW_DEVICE_TYPE.save()
+            if (line.startswith('POWER_PORT')) :
+                try:
+                    PowerPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name=POWER_PORT).save()
+                except:
+                    pass
             if (line.startswith('R_F_PORT')) :
                 try:
                     NEW_REAR_PORT_TEMPLATE = RearPortTemplate()
