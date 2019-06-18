@@ -30,7 +30,7 @@ for filename in Path('device_roles').glob('**/dr_*'):
                 NEW_DEVICE_ROLE.name = NAME
                 NEW_DEVICE_ROLE.save()
             if (line.startswith('VM_ROLE')) :
-                NEW_DEVICE_ROLE.name = VM_ROLE
+                NEW_DEVICE_ROLE.vm_role = VM_ROLE
                 NEW_DEVICE_ROLE.save()
             line = fp.readline()
     try:
