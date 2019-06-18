@@ -1,7 +1,7 @@
 MFGSLUG = "generic"
 SLUG = "patch-panel-24p-lc"
 MODEL = "Patch Panel 24 Ports LC"
-U_HEIGHT = "1"
+U_HEIGHT = "2"
 IS_FULL_DEPTH = False
 
 # 24x LC-Port
