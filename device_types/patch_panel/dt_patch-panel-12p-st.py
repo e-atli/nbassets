@@ -4,7 +4,7 @@ MODEL = "Patch Panel 12 Ports ST"
 U_HEIGHT = "1"
 IS_FULL_DEPTH = False
 
-NEW_REAR_PORT_TENPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 1/2")
+NEW_REAR_PORT_TEMPLATE = RearPortTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="Port 1/2")
 #NEW_REAR_PORT_TEMPLATE = RearPortTemplate.objects.get(device_type_id=NEW_DEVICE_TYPE.id, name="Port 1/2")
 NEW_REAR_PORT_TEMPLATE.type = "2000"
 NEW_REAR_PORT_TEMPLATE.positions = "1"
