@@ -1,7 +1,7 @@
 MFGSLUG = "apc"
-SLUG = "smart-ups-srt-3000-va"
-MODEL = "Smart-UPS SRT 3000 VA"
-PART_NUMBER = "SRT3000RMXLI"
+SLUG = "smart-ups-srt-2200-va"
+MODEL = "Smart-UPS SRT 2200 VA"
+PART_NUMBER = "SRT2200RMXLI"
 U_HEIGHT = "2"
 IS_FULL_DEPTH = True
 
