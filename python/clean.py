@@ -33,7 +33,7 @@ for filename in Path('device_types').glob('**/dt_*'):
                     pass
             line = fp.readline()
 
-for filename in Path('maufacturers').glob('**/mf_*'):
+for filename in Path('manufacturers').glob('**/mf_*'):
     SLUG = ''
     with filename.open() as fp:
         line = fp.readline()
