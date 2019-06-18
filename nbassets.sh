@@ -24,5 +24,14 @@ echo "Processing..."
 python3 $NETBOX_PATH/manage.py nbshell <python/device_types.py > /dev/null 2>&1
 
 echo
+echo "Searching Device Roles"
+echo "======================"
+find device_roles -name dr_*
+echo
+echo "Processing..."
+#python3 $NETBOX_PATH/manage.py nbshell <python/device_roles.py
+python3 $NETBOX_PATH/manage.py nbshell <python/device_roles.py > /dev/null 2>&1
+
+echo
 echo "Done."
 
