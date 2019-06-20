@@ -3,6 +3,7 @@ import glob
 
 from pathlib import Path
 
+print("Cluster Types...")
 for filename in Path('cluster_types').glob('**/ct_*'):
     SLUG = ''
     with filename.open() as fp:
@@ -20,6 +21,7 @@ for filename in Path('cluster_types').glob('**/ct_*'):
     except:
         pass
 
+print("Device Roles...")
 for filename in Path('device_roles').glob('**/dr_*'):
     SLUG = ''
     with filename.open() as fp:
