@@ -3,6 +3,7 @@ import glob
 
 from pathlib import Path
 
+print("\n")
 print("\nCluster Types...")
 for filename in Path('cluster_types').glob('**/ct_*'):
     SLUG = ''
@@ -21,6 +22,7 @@ for filename in Path('cluster_types').glob('**/ct_*'):
     except:
         pass
 
+print("\n")
 print("\nDevice Roles...")
 for filename in Path('device_roles').glob('**/dr_*'):
     SLUG = ''
@@ -39,6 +41,7 @@ for filename in Path('device_roles').glob('**/dr_*'):
     except:
         pass
 
+print("\n")
 print("\nDevice Types...")
 for filename in Path('device_types').glob('**/dt_*'):
     SLUG = ''
@@ -53,6 +56,7 @@ for filename in Path('device_types').glob('**/dt_*'):
                     pass
             line = fp.readline()
 
+print("\n")
 print("\nManufacturers...")
 for filename in Path('manufacturers').glob('**/mf_*'):
     SLUG = ''
