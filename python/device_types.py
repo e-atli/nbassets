@@ -61,7 +61,7 @@ for filename in Path('device_types').glob('**/dt_*'):
                     NEW_REAR_PORT_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
                     NEW_REAR_PORT_TEMPLATE.name = R_F_PORT
                     NEW_REAR_PORT_TEMPLATE.positions = '1'
-                    NEW_REAR_PORT_TEMPLATE.type = R_F_TYPE
+                    NEW_REAR_PORT_TEMPLATE.type = ''
                     NEW_REAR_PORT_TEMPLATE.save()
                     NEW_FRONT_PORT_TEMPLATE = FrontPortTemplate()
                     NEW_FRONT_PORT_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
