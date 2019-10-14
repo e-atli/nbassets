@@ -1,5 +1,5 @@
 MFGSLUG = "hpe"
-SLUG = "storefabric-sn3600b-32Gb-24-24-fibre-channel-switch"
+SLUG = "storefabric-sn3600b-32gb-24-24-fibre-channel"
 MODEL = "StoreFabric SN3600B 32Gb 24/24 Fibre Channel Switch"
 U_HEIGHT = "1"
 PART_NUMBER = 'Q1H71B'
