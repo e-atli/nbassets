@@ -16,5 +16,4 @@ POWER_PORT = 'Netzteil 2'
 IFACE_FF = '1000'
 INTERFACE = 'Port 1'
 INTERFACE = 'Port 2'
-
 OOB_MGMT = 'iDRAC'
