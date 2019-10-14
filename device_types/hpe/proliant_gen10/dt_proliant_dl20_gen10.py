@@ -7,7 +7,9 @@ IS_FULL_DEPTH = True
 POWER_PORT = 'PS1'
 
 IFACE_FF = '1000'
-OOB_MGMT = 'iLO'
+#INTERFACE = 'Port 1'
+#INTERFACE = 'Port 2'
+OOB_MGMT = 'iDRAC'
 
 #
 #InterfaceTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="iLO").save()
