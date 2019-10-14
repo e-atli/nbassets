@@ -1,4 +1,5 @@
 SLUG = 'core-switch'
 NAME = 'Core Switch'
-COLOR = '000000'
+#    ('ff5722', 'Dark orange'),
+COLOR = 'ff5722'
 VM_ROLE = False

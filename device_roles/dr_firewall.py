@@ -1,4 +1,5 @@
 SLUG = 'firewall'
 NAME = 'Firewall'
-COLOR = '000000'
+#    ('f44336', 'Red'),
+COLOR = 'f44336'
 VM_ROLE = True

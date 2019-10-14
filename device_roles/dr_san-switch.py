@@ -1,4 +1,5 @@
 SLUG = 'san-switch'
 NAME = 'SAN Switch'
-COLOR = '000000'
+#    ('ff66ff', 'Fuschia'),
+COLOR = 'ff66ff'
 VM_ROLE = False

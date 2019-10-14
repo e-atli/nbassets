@@ -1,4 +1,5 @@
 SLUG = 'ups'
 NAME = 'UPS'
-COLOR = '000000'
+#    ('607d8b', 'Dark grey'),
+COLOR = '607d8b'
 VM_ROLE = True

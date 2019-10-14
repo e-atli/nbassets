@@ -1,4 +1,5 @@
 SLUG = 'management-server'
 NAME = 'Management Server'
-COLOR = '000000'
+#    ('111111', 'Black'),
+COLOR = '111111'
 VM_ROLE = True
