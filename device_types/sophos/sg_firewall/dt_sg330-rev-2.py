@@ -1,6 +1,6 @@
 MFGSLUG = "sophos"
-SLUG = "sg330-rev-1"
-MODEL = "SG330 Rev.1"
+SLUG = "sg330-rev-2"
+MODEL = "SG330 Rev.2"
 U_HEIGHT = "1"
 IS_FULL_DEPTH = True
 
@@ -19,3 +19,7 @@ INTERFACE = 'E7'
 IFACE_FF = '1100'
 INTERFACE = 'E8'
 INTERFACE = 'E9'
+
+IFACE_FF = '1200'
+INTERFACE = 'E10'
+INTERFACE = 'E11'
