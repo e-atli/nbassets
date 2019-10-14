@@ -1,0 +1,13 @@
+MFGSLUG = 'hpe'
+SLUG = 'flexnetwork-10512-switch-chassis'
+MODEL = 'FlexNetwork 10512 Switch Chassis'
+PART_NUMBER = 'JC748A'
+U_HEIGHT = '18'
+IS_FULL_DEPTH = True
+
+POWER_PORT = 'C19-1'
+POWER_PORT = 'C19-2'
+POWER_PORT = 'C19-3'
+POWER_PORT = 'C19-4'
+POWER_PORT = 'C19-5'
+POWER_PORT = 'C19-6'
