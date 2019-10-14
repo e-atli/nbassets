@@ -41,6 +41,7 @@ for filename in Path('device_types').glob('**/dt_*'):
                     NEW_INTERFACE_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
                     NEW_INTERFACE_TEMPLATE.name = OOB_MGMT
                     NEW_INTERFACE_TEMPLATE.form_factor = IFACE_FF
+                    NEW_INTERFACE_TEMPLATE.mgmt_only = True
                     NEW_INTERFACE_TEMPLATE.save()
                 except:
                     pass
