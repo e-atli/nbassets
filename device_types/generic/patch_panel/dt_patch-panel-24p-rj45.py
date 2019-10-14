@@ -4,7 +4,7 @@ MODEL = "Patch Panel 24 Ports RJ45"
 U_HEIGHT = "2"
 IS_FULL_DEPTH = False
 
-# 24x LC-Port
+# 24x RJ45-Port
 R_F_TYPE = "1000"
 R_F_PORT = "Port 1"
 R_F_PORT = "Port 2"
