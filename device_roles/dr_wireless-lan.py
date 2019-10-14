@@ -1,4 +1,5 @@
 SLUG = 'wireless-lan'
 NAME = 'Wireless LAN'
-COLOR = '000000'
+#    ('ffc107', 'Amber'),
+COLOR = 'ffc107'
 VM_ROLE = True

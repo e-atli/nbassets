@@ -1,4 +1,5 @@
 SLUG = 'switch'
 NAME = 'Switch'
-COLOR = '000000'
+#    ('ff9800', 'Orange'),
+COLOR = 'ff9800'
 VM_ROLE = False
