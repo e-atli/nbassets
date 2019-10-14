@@ -1,5 +1,5 @@
 SLUG = 'database-server'
 NAME = 'Database Server'
-#    ('ffeb3b', 'Yellow'),
-COLOR = 'ffeb3b'
+#    ('9c27b0', 'Purple'),
+COLOR = '9c27b0'
 VM_ROLE = True
