@@ -1,0 +1,24 @@
+MFGSLUG = 'aruba'
+SLUG = '2530-8g-poe-switch'
+MODEL = '2530 8G PoE+ Switch'
+PART_NUMBER = 'J9774A'
+U_HEIGHT = '1'
+IS_FULL_DEPTH = False
+
+POWER_PORT = 'Power Supply'
+
+IFACE_FF = '1000'
+INTERFACE = 'Port 1'
+INTERFACE = 'Port 2'
+INTERFACE = 'Port 3'
+INTERFACE = 'Port 4'
+INTERFACE = 'Port 5'
+INTERFACE = 'Port 6'
+INTERFACE = 'Port 7'
+INTERFACE = 'Port 8'
+INTERFACE = 'Port 9T'
+INTERFACE = 'Port 10T'
+
+IFACE_FF = '1100'
+INTERFACE = 'Port 9S'
+INTERFACE = 'Port 10S'
