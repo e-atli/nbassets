@@ -1,5 +1,5 @@
 SLUG = 'firewall'
 NAME = 'Firewall'
-#    ('aa1409', 'Dark red'),
-COLOR = 'aa1409'
+#    ('f44336', 'Red'),
+COLOR = 'f44336'
 VM_ROLE = True

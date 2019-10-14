@@ -1,4 +1,5 @@
 SLUG = 'file-server'
 NAME = 'File Server'
-COLOR = '000000'
+#    ('795548', 'Brown'),
+COLOR = '795548'
 VM_ROLE = True
