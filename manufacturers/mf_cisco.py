@@ -1,0 +1,2 @@
+SLUG = "cisco"
+NAME = "Cisco"

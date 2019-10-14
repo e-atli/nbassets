@@ -1,0 +1,2 @@
+SLUG = "fortinet"
+NAME = "Fortinet"

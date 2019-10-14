@@ -1,0 +1,2 @@
+SLUG = "lenovo"
+NAME = "Lenovo"

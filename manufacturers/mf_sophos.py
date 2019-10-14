@@ -1,0 +1,2 @@
+SLUG = "sophos"
+NAME = "Sophos"
