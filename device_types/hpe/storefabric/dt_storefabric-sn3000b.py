@@ -1,7 +1,8 @@
 MFGSLUG = "hpe"
-SLUG = "16Gb-24-port-24-port-Active-Fibre-Channel-Switch"
+SLUG = "16Gb-24-port-24-port-active-fibre-channel-switch"
 MODEL = "16Gb 24-port/24-port Active Fibre Channel Switch"
 U_HEIGHT = "1"
+PART_NUMBER = 'AM868C'
 IS_FULL_DEPTH = True
 
 POWER_PORT = "PS1"
