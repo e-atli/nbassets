@@ -1,6 +1,6 @@
 MFGSLUG = "hpe"
-SLUG = "proliant-ml30-gen10"
-MODEL = "ProLiant ML30 Gen10"
+SLUG = "proliant-ml350-gen9"
+MODEL = "ProLiant ML350 Gen9"
 U_HEIGHT = "4"
 IS_FULL_DEPTH = True
 
@@ -9,7 +9,10 @@ POWER_PORT = "PS2"
 
 InterfaceTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="iLO").save()
 
-NEW_INTERFACE_TEMPLATE = InterfaceTemplate.objects.get(device_type_id=NEW_DEVICE_TYPE.id, name="iLO")
-NEW_INTERFACE_TEMPLATE.form_factor = "1000"
-NEW_INTERFACE_TEMPLATE.mgmt_only = True
-NEW_INTERFACE_TEMPLATE.save()
+# Um Interfaces anzulegen, zunächst mit IFACE_FF den Port Type angeben,
+# dann mit INTERFACE ein reguläres Interface, bzw.
+# OOB_MGMT ein Out-Of-Band Management Interface (z.B. iLO, iDRAC).
+# IFACE_FF muss nur einmalig für eine Reihe von neuen Interfaces angelegt werden,
+# solange sich der Typ nicht ändert.
+IFACE_FF = '1000'
+OOB_MGMT = 'iLO'

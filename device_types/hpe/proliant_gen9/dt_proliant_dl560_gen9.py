@@ -1,6 +1,6 @@
 MFGSLUG = "hpe"
-SLUG = "proliant-dl380-gen10"
-MODEL = "ProLiant DL380 Gen10"
+SLUG = "proliant-dl560-gen10"
+MODEL = "ProLiant DL560 Gen10"
 U_HEIGHT = "2"
 IS_FULL_DEPTH = True
 
