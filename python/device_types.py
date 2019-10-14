@@ -11,6 +11,7 @@ for filename in Path('device_types').glob('**/dt_*'):
     MFGSLUG = ''
     MODEL = ''
     NEW_DEVICE_TYPE = ''
+    OOB_MGMT = ''
     POWER_OUTLET = ''
     POWER_PORT = ''
     R_F_PORT = ''
@@ -30,6 +31,15 @@ for filename in Path('device_types').glob('**/dt_*'):
                     NEW_INTERFACE_TEMPLATE = InterfaceTemplate()
                     NEW_INTERFACE_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
                     NEW_INTERFACE_TEMPLATE.name = INTERFACE
+                    NEW_INTERFACE_TEMPLATE.form_factor = IFACE_FF
+                    NEW_INTERFACE_TEMPLATE.save()
+                except:
+                    pass
+            if (line.startswith('OOB_MGMT')) :
+                try:
+                    NEW_INTERFACE_TEMPLATE = InterfaceTemplate()
+                    NEW_INTERFACE_TEMPLATE.device_type_id = NEW_DEVICE_TYPE.id
+                    NEW_INTERFACE_TEMPLATE.name = OOB_MGMT
                     NEW_INTERFACE_TEMPLATE.form_factor = IFACE_FF
                     NEW_INTERFACE_TEMPLATE.save()
                 except:
