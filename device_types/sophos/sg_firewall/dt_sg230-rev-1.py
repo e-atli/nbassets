@@ -1,6 +1,6 @@
 MFGSLUG = "sophos"
-SLUG = "sg210-rev-1"
-MODEL = "SG210 Rev.1"
+SLUG = "sg230-rev-1"
+MODEL = "SG230 Rev.1"
 U_HEIGHT = "1"
 IS_FULL_DEPTH = True
 
@@ -13,5 +13,3 @@ INTERFACE = 'E2/DMZ'
 INTERFACE = 'E3/HA'
 INTERFACE = 'E4'
 INTERFACE = 'E5'
-INTERFACE = 'E6'
-INTERFACE = 'E7'
