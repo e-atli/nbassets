@@ -1,7 +1,7 @@
 MFGSLUG = "hpe"
-SLUG = "proliant-ml110-gen10"
-MODEL = "ProLiant ML110 Gen10"
-U_HEIGHT = "5"
+SLUG = "proliant-dl380-gen10"
+MODEL = "ProLiant DL380 Gen10"
+U_HEIGHT = "2"
 IS_FULL_DEPTH = True
 
 POWER_PORT = "PS1"

@@ -1,11 +1,10 @@
 MFGSLUG = "hpe"
-SLUG = "proliant-ml110-gen10"
-MODEL = "ProLiant ML110 Gen10"
-U_HEIGHT = "5"
+SLUG = "proliant-dl120-gen9"
+MODEL = "ProLiant DL120 Gen9"
+U_HEIGHT = "1"
 IS_FULL_DEPTH = True
 
 POWER_PORT = "PS1"
-POWER_PORT = "PS2"
 
 InterfaceTemplate(device_type_id=NEW_DEVICE_TYPE.id, name="iLO").save()
 
