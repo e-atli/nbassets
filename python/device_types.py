@@ -21,7 +21,7 @@ for filename in Path('device_types').glob('**/dt_*'):
     with filename.open() as fp:
         line = fp.readline()
         while line:
-            print(line)
+            #print(line)
             try:
                 exec(line)
             except:

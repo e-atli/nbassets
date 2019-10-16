@@ -2,6 +2,7 @@ MFGSLUG = "hpe"
 SLUG = "8-24-base-16-port-enabled-san-switch"
 MODEL = "8/24 Base 16-port Enabled SAN Switch"
 U_HEIGHT = "1"
+PART_NUMBER = "AM868C"
 IS_FULL_DEPTH = True
 
 POWER_PORT = "PS1"
