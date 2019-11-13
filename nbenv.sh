@@ -12,7 +12,11 @@ echo "=================================="
 
 echo
 echo "Using Customer Environment File $1"
-source $1
+
+if (-e $1);
+  then source $1;
+  else exit
+fi
 
 echo "vCenters to query: $VCENTERS"
 
