@@ -62,7 +62,9 @@ for (( i=0; i<$NUMVCENTERS; i++ ))
   find $PREFIX/clusters/ -name cl_* | xargs rm
   find $PREFIX/virtual_machines/ -name vm_* | xargs rm
   
+  echo "  Saving Cluster information to $PREFIX/clusters/cl_${VCENTER[$i]}.py"
   pwsh powershell/read_clusters.ps1 ${VCENTER[$i]} $USER $PASS > $PREFIX/clusters/cl_${VCENTER[$i]}.py;
+  echo "  Saving Virtual Machine information to $PREFIX/virtual_machines/vm_${VCENTER[$i]}.py"
   pwsh powershell/read_vms.ps1 ${VCENTER[$i]} $USER $PASS > $PREFIX/virtual_machines/vm_${VCENTER[$i]}.py
 }
 
