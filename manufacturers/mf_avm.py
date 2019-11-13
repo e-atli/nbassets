@@ -1,0 +1,2 @@
+SLUG = "avm"
+NAME = "AVM"

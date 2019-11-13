@@ -1,0 +1,2 @@
+SLUG = "suse"
+NAME = "SuSE"

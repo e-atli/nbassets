@@ -1,0 +1,2 @@
+SLUG = "fujitsu"
+NAME = "Fujitsu"

@@ -1,0 +1,2 @@
+SLUG = "vmwware"
+NAME = "VMware"

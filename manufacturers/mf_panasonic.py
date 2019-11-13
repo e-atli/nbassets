@@ -1,0 +1,2 @@
+SLUG = "panasonic"
+NAME = "Panasonic"

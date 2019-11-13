@@ -1,0 +1,2 @@
+SLUG = "qnap"
+NAME = "QNAP"

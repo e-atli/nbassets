@@ -1,0 +1,2 @@
+SLUG = "opengear"
+NAME = "Opengear"

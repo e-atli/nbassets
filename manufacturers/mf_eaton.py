@@ -1,0 +1,2 @@
+SLUG = "eaton"
+NAME = "Eaton"

@@ -1,0 +1,2 @@
+SLUG = "siemens"
+NAME = "Siemens"

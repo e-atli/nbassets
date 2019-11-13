@@ -1,0 +1,2 @@
+SLUG = "avocent"
+NAME = "Avocent"

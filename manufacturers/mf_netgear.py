@@ -1,0 +1,2 @@
+SLUG = "netgear"
+NAME = "Netgear"

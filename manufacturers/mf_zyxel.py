@@ -1,0 +1,2 @@
+SLUG = "zyxel"
+NAME = "Zyxel"

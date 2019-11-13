@@ -1,0 +1,2 @@
+SLUG = "innovaphone"
+NAME = "Innovaphone"

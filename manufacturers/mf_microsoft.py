@@ -1,0 +1,2 @@
+SLUG = "microsoft"
+NAME = "Microsoft"

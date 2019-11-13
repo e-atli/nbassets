@@ -1,0 +1,2 @@
+SLUG = "synology"
+NAME = "Synology"
