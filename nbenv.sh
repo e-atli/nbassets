@@ -32,6 +32,7 @@ do
 {
   echo $VCENTER[$i]
 }
+done
 
 if [ $USER == "" ];
   then
