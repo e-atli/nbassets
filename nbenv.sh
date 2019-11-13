@@ -69,14 +69,15 @@ for (( i=0; i<$NUMVCENTERS; i++ ))
   pwsh powershell/read_vms.ps1 ${VCENTER[$i]} $USER $PASS > $PREFIX/virtual_machines/vm_${VCENTER[$i]}.py
 }
 
-find $PREFIX/clusters/ -name cl_* | xargs cat
-find $PREFIX/virtual_machines/ -name vm_* | xargs cat
+#Output generated files for debug
+#find $PREFIX/clusters/ -name cl_* | xargs cat
+#find $PREFIX/virtual_machines/ -name vm_* | xargs cat
 
 cd $PREFIX
 
 echo
-echo "Searching VM Cluster"
-echo "===================="
+echo "Searching VMware Cluster"
+echo "========================"
 find clusters -name cl_*
 echo
 echo "Processing..."
