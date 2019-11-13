@@ -54,18 +54,20 @@ for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
   
-  mkdir -p /tmp/clusters;
-  mkdir -p /tmp/virtual_machines;
+  mkdir -p /tmp/nbassets/clusters;
+  mkdir -p /tmp/nbassets/virtual_machines;
   
-  if -e [ /tmp/clusters/cl_* ]; then { rm /tmp/clusters/cl_* } fi
-  if -e [ /tmp/virtual_machines/vm_* ]; then { rm /tmp/clusters/vm_* } fi
+  find /tmp/nbassets/clusters/ -name cl_* | xargs rm
+  find /tmp/nbassets/virtual_machines/ -name vm_* | xargs rm
   
-  exit 
   pwsh powershell/read_clusters.ps1 ${VCENTER[$i]} $USER $PASS > /tmp/clusters/cl_${VCENTER[$i]}.py;
   pwsh powershell/read_vms.ps1 ${VCENTER[$i]} $USER $PASS > /tmp/virtual_machines/vm_${VCENTER[$i]}.py
 }
 
-exit
+find /tmp/nbassets/clusters/ -name cl_* | xargs cat
+find /tmp/nbassets/virtual_machines/ -name vm_* | xargs cat
+
+exit 
 
 echo
 echo "Searching VM Cluster"
