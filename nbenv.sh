@@ -14,8 +14,16 @@ echo
 echo "Using Customer Environment File $1"
 
 if [ -e "$1" ];
-  then source $1;
-  else exit
+  then
+  {
+    source $1;
+  }
+  else
+  {
+        echo;
+        echo "File $1 not found. Exit.";
+        exit
+  }
 fi
 
 echo "vCenters to query: $VCENTERS"
