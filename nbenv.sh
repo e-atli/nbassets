@@ -40,7 +40,7 @@ if [ $USER == "" ];
   {
     echo;
     echo -n "Enter Username to connect: ";
-    read -s $USER
+    read -s USER
   }
 fi
 
@@ -48,8 +48,9 @@ echo
 echo -n "Enter Password for User $USER: " 
 read -s PASS
 echo
+echo
 
-for (( i=0; i<=$NUMVCENTERS; i++ ))
+for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
   
