@@ -50,22 +50,24 @@ read -s PASS
 echo
 echo
 
+PREFIX="/tmp/nbassets"
+
 for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
   
-  mkdir -p /tmp/nbassets/clusters;
-  mkdir -p /tmp/nbassets/virtual_machines;
+  mkdir -p $PREFIX/clusters;
+  mkdir -p $PREFIX/virtual_machines;
   
-  find /tmp/nbassets/clusters/ -name cl_* | xargs rm
-  find /tmp/nbassets/virtual_machines/ -name vm_* | xargs rm
+  find $PREFIX/clusters/ -name cl_* | xargs rm
+  find $PREFIX/virtual_machines/ -name vm_* | xargs rm
   
-  pwsh powershell/read_clusters.ps1 ${VCENTER[$i]} $USER $PASS > /tmp/clusters/cl_${VCENTER[$i]}.py;
-  pwsh powershell/read_vms.ps1 ${VCENTER[$i]} $USER $PASS > /tmp/virtual_machines/vm_${VCENTER[$i]}.py
+  pwsh powershell/read_clusters.ps1 ${VCENTER[$i]} $USER $PASS > $PREFIX/clusters/cl_${VCENTER[$i]}.py;
+  pwsh powershell/read_vms.ps1 ${VCENTER[$i]} $USER $PASS > $PREFIX/virtual_machines/vm_${VCENTER[$i]}.py
 }
 
-find /tmp/nbassets/clusters/ -name cl_* | xargs cat
-find /tmp/nbassets/virtual_machines/ -name vm_* | xargs cat
+find $PREFIX/clusters/ -name cl_* | xargs cat
+find $PREFIX/virtual_machines/ -name vm_* | xargs cat
 
 exit 
 
