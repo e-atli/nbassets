@@ -31,7 +31,7 @@ while [ ${VCENTER[$i]} ]
 do
 {
   echo ${VCENTER[$i]};
-  i=i+1
+  ((i++))
 }
 done
 
