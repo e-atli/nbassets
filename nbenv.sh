@@ -29,10 +29,11 @@ fi
 echo "vCenters to query: $VCENTERS"
 
 if [ $USER == "" ];
-{
-  echo -n "Enter Username to connect: "
-  read -s $USER
-}
+  then
+  {
+    echo -n "Enter Username to connect: ";
+    read -s $USER
+  }
 fi
 
 echo -n "Enter Password for User $USER: " 
