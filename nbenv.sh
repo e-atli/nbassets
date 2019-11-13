@@ -50,6 +50,7 @@ read -s PASS
 echo
 echo
 
+NBASSETSPATH=$PWD
 PREFIX="/tmp/nbassets"
 
 for (( i=0; i<$NUMVCENTERS; i++ ))
@@ -71,7 +72,7 @@ for (( i=0; i<$NUMVCENTERS; i++ ))
 find $PREFIX/clusters/ -name cl_* | xargs cat
 find $PREFIX/virtual_machines/ -name vm_* | xargs cat
 
-exit 
+cd $PREFIX
 
 echo
 echo "Searching VM Cluster"
@@ -79,7 +80,7 @@ echo "===================="
 find clusters -name cl_*
 echo
 echo "Processing..."
-python3 $NETBOX_PATH/manage.py nbshell <python/clusters.py
+python3 $NETBOX_PATH/manage.py nbshell <$NBASSETSPATH/python/clusters.py
 
 echo
 echo "Done."
@@ -90,7 +91,7 @@ echo "=========================="
 find virtual_machines -name vm_*
 echo
 echo "Processing..."
-python3 $NETBOX_PATH/manage.py nbshell <python/virtual_machines.py
+python3 $NETBOX_PATH/manage.py nbshell <$NBASSETSPATH/python/virtual_machines.py
 
 echo
 echo "Done."
