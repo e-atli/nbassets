@@ -26,7 +26,12 @@ if [ -e "$1" ];
   }
 fi
 
-echo "vCenters to query: $VCENTERS"
+i = 0
+while $VCENTER[$i]
+do
+{
+  echo $VCENTER[$i]
+}
 
 if [ $USER == "" ];
   then
