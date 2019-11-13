@@ -25,7 +25,8 @@ $VMS | ForEach {
   Write-Host "STATUS = '$STATUS'"
 
   $ROLE = ''
-  $ROLE = (Get-Annotation -CustomAttribute 'Role' -Entity $_).Value
+  $ROLE = Get-TagAssignment -Entity $_ -Category 'Role' | foreach { $_.Tag.Name }
+  #$ROLE = (Get-Annotation -CustomAttribute 'Role' -Entity $_).Value
   IF ($ROLE) {
     Write-Host "ROLE = '$ROLE'"
     }
