@@ -27,10 +27,10 @@ echo
 echo "Following vCenters will be queried:"
 
 NUMVCENTERS=0
-while [ ${VCENTER[$i]} ]
+while [ ${VCENTER[$NUMVCENTERS]} ]
 do
 {
-  echo "  ${VCENTER[$i]}";
+  echo "  ${VCENTER[$NUMVCENTERS]}";
   ((NUMVCENTERS++))
 }
 done
