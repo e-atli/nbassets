@@ -26,7 +26,7 @@ if [ -e "$1" ];
   }
 fi
 
-i = 0
+i=0
 while $VCENTER[$i]
 do
 {
