@@ -27,10 +27,11 @@ if [ -e "$1" ];
 fi
 
 i=0
-while $VCENTER[$i]
+while [ ${VCENTER[$i]} ]
 do
 {
-  echo $VCENTER[$i]
+  echo ${VCENTER[$i]};
+  i=i+1
 }
 done
 
