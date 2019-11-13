@@ -5,12 +5,6 @@ echo "===================================="
 export NETBOX_PATH="/opt/netbox/netbox"
 echo "Netbox Path: $NETBOX_PATH"
 echo
-
-echo
-echo "Getting VMware Cluster Information"
-echo "=================================="
-
-echo
 echo "Using Customer Environment File $1"
 
 if [ -e "$1" ];
@@ -26,37 +20,45 @@ if [ -e "$1" ];
   }
 fi
 
-i=0
+echo
+echo "Getting VMware Cluster Information"
+echo "=================================="
+echo
+echo "Following vCenters will be queried:"
+
+NUMVCENTERS=0
 while [ ${VCENTER[$i]} ]
 do
 {
-  echo ${VCENTER[$i]};
-  ((i++))
+  echo "  ${VCENTER[$i]}";
+  ((NUMVCENTERS++))
 }
 done
 
 if [ $USER == "" ];
   then
   {
+    echo;
     echo -n "Enter Username to connect: ";
     read -s $USER
   }
 fi
 
+echo
 echo -n "Enter Password for User $USER: " 
 read -s PASS
+echo
 
-for $VCENTER in $VCENTERS
+for (( i=0; i<=$NUMVCENTERS; i++ ))
   {
-  echo "Connecting to vCenter Server $VCENTER...";
+  echo "Connecting to vCenter Server $VCENTER[i]...";
   }
 
-echo "Exit."
-exit
-
-pwsh powershell/read_clusters.ps1 $VCENTER $USER $PASS > clusters/cl_vmware-vsphere.py
+pwsh powershell/read_clusters.ps1 $VCENTER[i] $USER $PASS > clusters/cl_vmware-vsphere.py
 source clusters/cl_vmware-vsphere.py
-pwsh powershell/read_vms.ps1 $VCENTER $USER $PASS > virtual_machines/vm_$NAME.py
+pwsh powershell/read_vms.ps1 $VCENTER[i] $USER $PASS > virtual_machines/vm_$NAME.py
+
+exit
 
 echo
 echo "Searching VM Cluster"
