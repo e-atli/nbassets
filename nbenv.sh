@@ -54,11 +54,11 @@ for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
   
-  mkdir -p /tmp/clusters
-  mkdir -p /tmp/virtual_machines
+  mkdir -p /tmp/clusters;
+  mkdir -p /tmp/virtual_machines;
   
-  if -e [ /tmp/clusters/cl_* ]; rm /tmp/clusters/cl_*
-  if -e [ /tmp/virtual_machines/vm_* ]; rm /tmp/clusters/vm_*
+  if -e [ /tmp/clusters/cl_* ]; rm /tmp/clusters/cl_*; fi
+  if -e [ /tmp/virtual_machines/vm_* ]; rm /tmp/clusters/vm_*; fi
   
   exit 
   pwsh powershell/read_clusters.ps1 ${VCENTER[$i]} $USER $PASS > /tmp/clusters/cl_${VCENTER[$i]}.py;
