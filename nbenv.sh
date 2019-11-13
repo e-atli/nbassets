@@ -54,8 +54,8 @@ for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
   
-  pwsh powershell/read_clusters.ps1 ${VCENTER[$i]} $USER $PASS > clusters/cl_${VCENTER[$i]}.py
-  source clusters/cl_vmware-vsphere.py
+  pwsh powershell/read_clusters.ps1 ${VCENTER[$i]} $USER $PASS > clusters/cl_${VCENTER[$i]}.py;
+  source clusters/cl_${VCENTER[$i]}.py;
   pwsh powershell/read_vms.ps1 ${VCENTER[$i]} $USER $PASS > virtual_machines/vm_$NAME.py
 }
 
