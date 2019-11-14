@@ -27,24 +27,29 @@ Foreach ($CLUSTER in $CLUSTERS) {
 
   Foreach ($VM in $VMS) {
     $NAME = $VM.Name
-    "NAME = '$NAME'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-    
     $VCPUS = $VM.NumCpu
-    "VCPUS = '$VCPUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-
     $MEMORY = $VM.MemoryMB
-    "MEMORY = '$MEMORY'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-
     $DISK = [math]::round((Get-HardDisk -vm $VM | Measure-Object -Sum CapacityGB).Sum)
-    "DISK = '$DISK'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-
     $STATUS = $VM.PowerState
-    "STATUS = '$STATUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
- 
     $ROLE = ((Get-TagAssignment -Entity $VM -Category 'Role')).Tag.Name
-    IF ($ROLE) { "ROLE = '$ROLE'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append }
 
-    "" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+    {
+      "NAME = '$NAME'"
+      "VCPUS = '$VCPUS'"
+      "MEMORY = '$MEMORY'"
+      "DISK = '$DISK'"
+      "STATUS = '$STATUS'"
+      IF ($ROLE) { "ROLE = '$ROLE'" }
+      ""
+    } | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+    
+#    "NAME = '$NAME'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+#    "VCPUS = '$VCPUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+#    "MEMORY = '$MEMORY'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+#    "DISK = '$DISK'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+#    "STATUS = '$STATUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+#    IF ($ROLE) { "ROLE = '$ROLE'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append }
+#    "" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
   }
 
 "" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append

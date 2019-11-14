@@ -69,7 +69,7 @@ for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
   echo "Saving Cluster and Virtual Machine information to PATH: $PREFIX"
-  pwsh powershell/read_vms.ps1 ${VCENTER[$i]} $USER $PASS $PREFIX
+  pwsh powershell/get-vsphere.ps1 ${VCENTER[$i]} $USER $PASS $PREFIX
 }
 
 cd $PREFIX
