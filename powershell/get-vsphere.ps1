@@ -41,15 +41,5 @@ Foreach ($CLUSTER in $CLUSTERS) {
       "STATUS = '$STATUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
 
     IF ($ROLE) { "ROLE = '$ROLE'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append }
-    
-#    "NAME = '$NAME'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-#    "VCPUS = '$VCPUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-#    "MEMORY = '$MEMORY'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-#    "DISK = '$DISK'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-#    "STATUS = '$STATUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
-#    IF ($ROLE) { "ROLE = '$ROLE'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append }
-#    "" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
   }
-
-"" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
 }
