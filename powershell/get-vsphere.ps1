@@ -33,15 +33,13 @@ Foreach ($CLUSTER in $CLUSTERS) {
     $STATUS = $VM.PowerState
     $ROLE = ((Get-TagAssignment -Entity $VM -Category 'Role')).Tag.Name
 
-    {
-      "NAME = '$NAME'"
-      "VCPUS = '$VCPUS'"
-      "MEMORY = '$MEMORY'"
-      "DISK = '$DISK'"
-      "STATUS = '$STATUS'"
-      IF ($ROLE) { "ROLE = '$ROLE'" }
-      ""
-    } | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+    Write-Output "NAME = '$NAME'",
+      "VCPUS = '$VCPUS'",
+      "MEMORY = '$MEMORY'",
+      "DISK = '$DISK'",
+      "STATUS = '$STATUS'",
+      IF ($ROLE) { "ROLE = '$ROLE'" },
+      "" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
     
 #    "NAME = '$NAME'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
 #    "VCPUS = '$VCPUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
