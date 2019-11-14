@@ -7,6 +7,9 @@ $args[1]
 $args[2]
 $args[3]
 
+(($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 2)
+$PSBoundParameters.values
+
 If (($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 2)
   { exit }
 
