@@ -5,24 +5,13 @@ $USER = $args[1]
 $PASS = $args[2]
 $PATHPREFIX = $args[3]
 
-exit
-
-# Prüfe ob 3 Variablen übergeben wurden
-For ($i = 0; $i -lt 4; $i++)
-     {
-        $args[$i]
-        If ($args[$i] = $Null) { Exit }
-     }
-
-If ($args[3]) {
-  $PATHPREFIX = "$args[3]"
-  }
-Else {
-  $PATHPREFIX = "."
-  }
+If ($VCENTER = $Null) { Exit }
+If ($USER = $Null) { Exit }
+If ($PASS = $Null) { Exit }
+If ($PATHPREFIX = $Null) { $PATHPREFIX = "." }
 
 # Verbinde zum vCenter
-Connect-VIServer -Server $args[0] -User $args[1] -Password $args[2] | Out-Null
+Connect-VIServer -Server $VCENTER -User $USER -Password $PASS | Out-Null
 
 # Cluster ermitteln
 $CLUSTERS = Get-Cluster
