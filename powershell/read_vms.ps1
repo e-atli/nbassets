@@ -3,33 +3,35 @@
 Connect-VIServer -Server $args[0] -User $args[1] -Password $args[2] | Out-Null
 
 # Cluster ermitteln
-$CLUSTER = Get-Cluster | ForEach { $_.Name }
-#Write-Host "CLUSTER = '$CLUSTER'"
+$CLUSTERS = Get-Cluster
 
-$VMS = Get-VM | Foreach { $_.Name }
+Foreach ($CLUSTER in $CLUSTERS) {
+  #"CLUSTER = '$CLUSTER'" | Tee-Object -FilePath vm_$CLUSTER.py
+  "CLUSTER = '$CLUSTER'" | Out-File -FilePath vm_$CLUSTER.py
+  
+  $VMS = Get-VM -Location $CLUSTER
 
-$VMS | ForEach {
-  Write-Host "CLUSTER = '$CLUSTER'"
-  Write-Host "NAME = '$_'"
+  Foreach ($VM in $VMS) {
+    $NAME = $VM.Name
+    "NAME = '$NAME'" | Out-File -FilePath vm_$CLUSTER.py -Append
+    
+    $VCPUS = $VM.NumCpu
+    "VCPUS = '$VCPUS'" | Tee-Object -FilePath vm_$CLUSTER.py -Append
 
-  $VCPUS = Get-VM -Name $_ | ForEach { $_.NumCpu }
-  Write-Host "VCPUS = '$VCPUS'"
+    $MEMORY = $VM.MemoryMB
+    "MEMORY = '$MEMORY'" | Tee-Object -FilePath vm_$CLUSTER.py -Append
 
-  $MEMORY = Get-VM -Name $_ | ForEach { $_.MemoryMB }
-  Write-Host "MEMORY = '$MEMORY'"
+    $DISK = [math]::round((Get-HardDisk -vm $VM | Measure-Object -Sum CapacityGB).Sum)
+    "DISK = '$DISK'" | Tee-Object -FilePath vm_$CLUSTER.py -Append
 
-  $DISK = [math]::round((Get-HardDisk -vm $_ | Measure-Object -Sum CapacityGB).Sum)
-  Write-Host "DISK = '$DISK'"
+    $STATUS = $VM.PowerState
+    "STATUS = '$STATUS'" | Tee-Object -FilePath vm_$CLUSTER.py -Append
+ 
+    $ROLE = ((Get-TagAssignment -Entity $VM -Category 'Role')).Tag.Name
+    IF ($ROLE) { "ROLE = '$ROLE'" | Tee-Object -FilePath vm_$CLUSTER.py -Append }
 
-  $STATUS = Get-VM -Name $_ | ForEach { $_.PowerState }
-  Write-Host "STATUS = '$STATUS'"
-
-  $ROLE = ''
-  $ROLE = Get-TagAssignment -Entity $_ -Category 'Role' | foreach { $_.Tag.Name }
-  #$ROLE = (Get-Annotation -CustomAttribute 'Role' -Entity $_).Value
-  IF ($ROLE) {
-    Write-Host "ROLE = '$ROLE'"
-    }
-
-  Write-Host ""
+    "" | Tee-Object -FilePath vm_$CLUSTER.py -Append
   }
+
+"" | Tee-Object -FilePath vm_$CLUSTER.py -Append
+}
