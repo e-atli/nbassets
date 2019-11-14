@@ -1,9 +1,9 @@
 #!/usr/bin/pwsh
 
-$VCENTER = $args[0]
-$USER = $args[1]
-$PASS = $args[2]
-$PATHPREFIX = $args[3]
+$VCENTER = $($args[0])
+$USER = $($args[1])
+$PASS = $($args[2])
+$PATHPREFIX = $($args[3])
 
 If ($VCENTER = $Null) { Exit }
 If ($USER = $Null) { Exit }
