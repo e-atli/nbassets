@@ -11,14 +11,13 @@ If ($PASS -eq $Null) { Exit }
 If ($PATHPREFIX -eq $Null) { $PATHPREFIX = "." }
 
 # Verbinde zum vCenter
-Write-Host $args[0]
-Write-Host "$VCENTER"
-Write-Host "$USER"
-Write-Host "$PASS"
-Write-Host "$PATHPREFIX"
+Write-Host $VCENTER
+Write-Host $USER
+Write-Host $PASS
+Write-Host $PATHPREFIX
 
 exit 
-Connect-VIServer -Server "$VCENTER" -User "$USER" -Password "$PASS" | Out-Null
+Connect-VIServer -Server $VCENTER -User $USER -Password $PASS | Out-Null
 
 # Cluster ermitteln
 $CLUSTERS = Get-Cluster
