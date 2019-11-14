@@ -53,25 +53,24 @@ echo
 NBASSETSPATH=$PWD
 PREFIX="/tmp/nbassets"
 
+if [ -d $PREFIX/clusters ];
+  then
+    rm -fr $PREFIX/cluster;
+    mkdir -p $PREFIX/clusters;
+fi
+
+if [ -d $PREFIX/virtual_machiness ];
+  then
+    rm -fr $PREFIX/virtual_machine;
+    mkdir -p $PREFIX/virtual_machines;
+fi
+
 for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
-  
-  mkdir -p $PREFIX/clusters;
-  mkdir -p $PREFIX/virtual_machines;
-  
-  find $PREFIX/clusters/ -name cl_* | xargs rm
-  find $PREFIX/virtual_machines/ -name vm_* | xargs rm
-  
-  #echo "  Saving Cluster information to $PREFIX/clusters/cl_${VCENTER[$i]}.py"
-  #pwsh powershell/read_clusters.ps1 ${VCENTER[$i]} $USER $PASS $PREFIX
-  echo "  Saving Cluster and Virtual Machine information to PATH: $PREFIX"
+  echo "Saving Cluster and Virtual Machine information to PATH: $PREFIX"
   pwsh powershell/read_vms.ps1 ${VCENTER[$i]} $USER $PASS $PREFIX
 }
-
-#Output generated files for debug
-#find $PREFIX/clusters/ -name cl_* | xargs cat
-#find $PREFIX/virtual_machines/ -name vm_* | xargs cat
 
 cd $PREFIX
 
