@@ -3,7 +3,7 @@
 $VCENTER = $args[0]
 $USER = $args[1]
 $PASS = $args[2]
-$PATHPREFIX $args[3]
+$PATHPREFIX = $args[3]
 
 exit
 
