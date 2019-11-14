@@ -41,5 +41,17 @@ Foreach ($CLUSTER in $CLUSTERS) {
       "STATUS = '$STATUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
 
     IF ($ROLE) { "ROLE = '$ROLE'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append }
+  
+    # Netzwerkkarten ermitteln
+    $NICS = Get-NetworkAdapter -VM $VM
+    
+    Foreach ($NIC in $NICS) {
+      $INTERFACE = $NIC.Name
+      $MAC = $NIC.MacAdress
+
+      Write-Output "",
+        "INTERFACE = '$INTERFACE'",
+        "MAC = '$MAC'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+    }
   }
 }
