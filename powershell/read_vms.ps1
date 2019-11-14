@@ -1,5 +1,11 @@
 #!/usr/bin/pwsh
 
+param (
+  [parameter(Mandatory=$true)]
+  [ValidateNotNullOrEmpty()]
+  [String]
+)
+
 Connect-VIServer -Server $args[0] -User $args[1] -Password $args[2] | Out-Null
 PATHPREFIX="$args[3]"
 
