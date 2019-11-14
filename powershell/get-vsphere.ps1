@@ -47,10 +47,10 @@ Foreach ($CLUSTER in $CLUSTERS) {
     
     Foreach ($NIC in $NICS) {
       $INTERFACE = $NIC.Name
-      $MAC = $NIC.MacAddress
+      $MAC_ADDRESS = $NIC.MacAddress
 
       Write-Output "INTERFACE = '$INTERFACE'",
-        "MAC = '$MAC'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
+        "MAC_ADDRESS = '$MAC'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
     }
   }
 }

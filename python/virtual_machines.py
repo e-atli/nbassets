@@ -5,12 +5,14 @@ from pathlib import Path
 
 for filename in Path('virtual_machines').glob('**/vm_*'):
     CLUSTER = ''
-    NAME = ''
-    VCPUS = ''
-    MEMORY = ''
     DISK = ''
+    INTERFACE = ''
+    MAC_ADDRESS = ''
+    MEMORY = ''
+    NAME = ''
     ROLE = ''
     STATUS = ''
+    VCPUS = ''
     with filename.open() as fp:
         line = fp.readline()
         while line:
@@ -79,6 +81,22 @@ for filename in Path('virtual_machines').glob('**/vm_*'):
                     VIRTUAL_MACHINE = VirtualMachine.objects.get(cluster=CLUSTERID,name=NAME)
                     VIRTUAL_MACHINE.status = STATUS
                     VIRTUAL_MACHINE.save()
+            if (line.startswith('INTERFACE')) :
+                try:
+                    VIRTUAL_MACHINE = VirtualMachine.objects.get(cluster=CLUSTERID,name=NAME)
+                    NEW_VM_INTERFACE = VIRTUAL_MACHINE.interfaces.add()
+                    NEW_VM_INTERFACE.name = INTERFACE
+                    NEW_VM_INTERFACE.save()
+                except:
+                    pass
+            if (line.startswith('MAC_ADDRESS')) :
+                try:
+                    VIRTUAL_MACHINE = VirtualMachine.objects.get(cluster=CLUSTERID,name=NAME)
+                    VM_INTERFACE = VIRTUAL_MACHINE.interfaces.get(name=INTERFACE)
+                    VM_INTERFACE.mac_address = MAC_ADDRESS
+                    VM_INTERFACE.save()
+                except:
+                    pass
             line = fp.readline()
     try:
         filename.close
