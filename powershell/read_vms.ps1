@@ -7,7 +7,10 @@ $args[1]
 $args[2]
 $args[3]
 
+Write-Host "1"
 (($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 2)
+
+Write-Host "2"
 $PSBoundParameters.values
 
 If (($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 2)
