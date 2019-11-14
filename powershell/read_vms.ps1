@@ -1,29 +1,20 @@
 #!/usr/bin/pwsh
 
-#Param ($args[0],$args[1],$args[2],$args[3])
+# Prüfe ob 3 Variablen übergeben wurden
+For ($i = 0; $i -lt 3; $i++)
+     {
+        If ($args[$i] == $Null) { Exit }
+     }
 
-$args[0]
-$args[1]
-$args[2]
-$args[3]
+If ($args[3] == $Null) {
+  PATHPREFIX="."
+  }
+Else {
+  PATHPREFIX="$args[3]"
+  }
 
-Write-Host "1"
-(($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 4)
-
-Write-Host "2"
-$PSBoundParameters.values
-
-If (($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 2)
-  { exit }
-
-$args[0]
-$args[1]
-$args[2]
-$args[3]
-
-
+# Verbinde zum vCenter
 Connect-VIServer -Server $args[0] -User $args[1] -Password $args[2] | Out-Null
-PATHPREFIX="$args[3]"
 
 # Cluster ermitteln
 $CLUSTERS = Get-Cluster
@@ -57,3 +48,4 @@ Foreach ($CLUSTER in $CLUSTERS) {
 
 "" | Out-File -FilePath $PATHPREFIX/vm_$CLUSTER.py -Append
 }
+
