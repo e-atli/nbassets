@@ -1,11 +1,6 @@
 #!/usr/bin/pwsh
 
-Param (
-  $args[0],
-  $args[1],
-  $args[2],
-  $args[3]
-)
+Param ($args[0],$args[1],$args[2],$args[3])
 
 If (($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 4)
   { exit }
