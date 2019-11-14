@@ -18,7 +18,7 @@ $CLUSTERS = Get-Cluster
 Foreach ($CLUSTER in $CLUSTERS) {
   # Save Cluster Information
   "TYPE = 'VMware vSphere'" | Out-File -FilePath "$PATHPREFIX/clusters/cl_$CLUSTER.py"
-  "CLUSTER = '$CLUSTER'" | Out-File -FilePath "$PATHPREFIX/clusters/cl_$CLUSTER.py" -Append
+  "NAME = '$CLUSTER'" | Out-File -FilePath "$PATHPREFIX/clusters/cl_$CLUSTER.py" -Append
   
   # Save VM Information
   "CLUSTER = '$CLUSTER'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py"
