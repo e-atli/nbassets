@@ -49,4 +49,3 @@ Foreach ($CLUSTER in $CLUSTERS) {
 
 "" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
 }
-
