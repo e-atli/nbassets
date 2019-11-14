@@ -55,13 +55,13 @@ PREFIX="/tmp/nbassets"
 
 if [ -d $PREFIX/clusters ];
   then
-    rm -fr $PREFIX/cluster;
+    rm -fr $PREFIX/clusters;
     mkdir -p $PREFIX/clusters;
 fi
 
-if [ -d $PREFIX/virtual_machiness ];
+if [ -d $PREFIX/virtual_machines ];
   then
-    rm -fr $PREFIX/virtual_machine;
+    rm -fr $PREFIX/virtual_machines;
     mkdir -p $PREFIX/virtual_machines;
 fi
 
