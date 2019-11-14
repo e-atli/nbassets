@@ -11,7 +11,7 @@ If ($PASS = $Null) { Exit }
 If ($PATHPREFIX = $Null) { $PATHPREFIX = "." }
 
 # Verbinde zum vCenter
-Write-Host "$args[0]"
+Write-Host $args[0]
 Write-Host "$VCENTER"
 Write-Host "$USER"
 Write-Host "$PASS"
