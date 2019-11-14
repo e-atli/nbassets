@@ -6,11 +6,11 @@ For ($i = 0; $i -lt 3; $i++)
         If ($args[$i] = $Null) { Exit }
      }
 
-If ($args[3] = $Null) {
-  PATHPREFIX="."
+If ($args[3]) {
+  PATHPREFIX="$args[3]"
   }
 Else {
-  PATHPREFIX="$args[3]"
+  PATHPREFIX="."
   }
 
 # Verbinde zum vCenter
