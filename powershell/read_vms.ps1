@@ -7,10 +7,10 @@ For ($i = 0; $i -lt 3; $i++)
      }
 
 If ($args[3]) {
-  PATHPREFIX="$args[3]"
+  $PATHPREFIX="$args[3]"
   }
 Else {
-  PATHPREFIX="."
+  $PATHPREFIX="."
   }
 
 # Verbinde zum vCenter
