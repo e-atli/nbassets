@@ -2,8 +2,19 @@
 
 #Param ($args[0],$args[1],$args[2],$args[3])
 
-If (($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 4)
+$args[0]
+$args[1]
+$args[2]
+$args[3]
+
+If (($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 2)
   { exit }
+
+$args[0]
+$args[1]
+$args[2]
+$args[3]
+
 
 Connect-VIServer -Server $args[0] -User $args[1] -Password $args[2] | Out-Null
 PATHPREFIX="$args[3]"
