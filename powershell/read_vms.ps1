@@ -1,16 +1,17 @@
 #!/usr/bin/pwsh
 
 # Prüfe ob 3 Variablen übergeben wurden
-For ($i = 0; $i -lt 3; $i++)
+For ($i = 0; $i -lt 4; $i++)
      {
+        $args[$i]
         If ($args[$i] = $Null) { Exit }
      }
 
 If ($args[3]) {
-  $PATHPREFIX="$args[3]"
+  $PATHPREFIX = "$args[3]"
   }
 Else {
-  $PATHPREFIX="."
+  $PATHPREFIX = "."
   }
 
 # Verbinde zum vCenter
