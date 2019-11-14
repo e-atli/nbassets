@@ -1,14 +1,14 @@
 #!/usr/bin/pwsh
 
-$VCENTER = $args[0]
+$VCENTER = {$args[0]}
 $USER = $args[1]
 $PASS = $args[2]
 $PATHPREFIX = $args[3]
 
-If ($VCENTER = $Null) { Exit }
-If ($USER = $Null) { Exit }
-If ($PASS = $Null) { Exit }
-If ($PATHPREFIX = $Null) { $PATHPREFIX = "." }
+If ($VCENTER -eq $Null) { Exit }
+If ($USER -eq $Null) { Exit }
+If ($PASS -eq $Null) { Exit }
+If ($PATHPREFIX -eq $Null) { $PATHPREFIX = "." }
 
 # Verbinde zum vCenter
 Write-Host $args[0]
