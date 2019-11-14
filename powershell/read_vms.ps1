@@ -1,5 +1,12 @@
 #!/usr/bin/pwsh
 
+$VCENTER = $args[0]
+$USER = $args[1]
+$PASS = $args[2]
+$PATHPREFIX $args[3]
+
+exit
+
 # Prüfe ob 3 Variablen übergeben wurden
 For ($i = 0; $i -lt 4; $i++)
      {
