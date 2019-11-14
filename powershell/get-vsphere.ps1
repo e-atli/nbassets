@@ -33,8 +33,7 @@ Foreach ($CLUSTER in $CLUSTERS) {
     $STATUS = $VM.PowerState
     $ROLE = ((Get-TagAssignment -Entity $VM -Category 'Role')).Tag.Name
 
-    Write-Output
-      "",
+    Write-Output "",
       "NAME = '$NAME'",
       "VCPUS = '$VCPUS'",
       "MEMORY = '$MEMORY'",
@@ -50,8 +49,7 @@ Foreach ($CLUSTER in $CLUSTERS) {
       $INTERFACE = $NIC.Name
       $MAC = $NIC.MacAddress
 
-      Write-Output
-        "INTERFACE = '$INTERFACE'",
+      Write-Output "INTERFACE = '$INTERFACE'",
         "MAC = '$MAC'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
     }
   }
