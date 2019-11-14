@@ -1,6 +1,16 @@
 #!/usr/bin/pwsh
 
-Connect-VIServer -Server $args[0] -User $args[1] -Password $args[2] | Out-Null
+$VCENTER = $args[0]
+$USER = $args[1]
+$PASS = $args[2]
+$PATHPREFIX = $args[3]
+
+If ($VCENTER -eq $Null) { Exit }
+If ($USER -eq $Null) { Exit }
+If ($PASS -eq $Null) { Exit }
+If ($PATHPREFIX -eq $Null) { $PATHPREFIX = "." }
+
+Connect-VIServer -Server $VCENTER -User $USER -Password $PASS | Out-Null
 
 # Cluster ermitteln
 $CLUSTER = Get-Cluster | ForEach { $_.Name }
