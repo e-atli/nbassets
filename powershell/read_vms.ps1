@@ -3,10 +3,10 @@
 # Prüfe ob 3 Variablen übergeben wurden
 For ($i = 0; $i -lt 3; $i++)
      {
-        If ($args[$i] == $Null) { Exit }
+        If ($args[$i] = $Null) { Exit }
      }
 
-If ($args[3] == $Null) {
+If ($args[3] = $Null) {
   PATHPREFIX="."
   }
 Else {
