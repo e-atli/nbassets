@@ -1,9 +1,14 @@
 #!/usr/bin/pwsh
 
-param (
-  [parameter(Mandatory=$true)]
-  [ValidateNotNullOrEmpty()]
-  [String] )
+Param (
+  $args[0],
+  $args[1],
+  $args[2],
+  $args[3]
+)
+
+If (($PSBoundParameters.values | Measure-Object | Select-Object -ExpandProperty Count) -lt 4)
+  { exit }
 
 Connect-VIServer -Server $args[0] -User $args[1] -Password $args[2] | Out-Null
 PATHPREFIX="$args[3]"
