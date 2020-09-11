@@ -75,11 +75,13 @@ PREFIX="/tmp/nbassets"
 # from an previous inventory
 if [ -d $PREFIX/clusters ];
   then
+    echo "Deleting old clusters folder $PREFIX/clusters";
     rm -fr $PREFIX/clusters;
 fi
 
 if [ -d $PREFIX/virtual_machines ];
   then
+    echo "Deleting old virtual_machines folder $PREFIX/virtual_machines";
     rm -fr $PREFIX/virtual_machines;
 fi
 
