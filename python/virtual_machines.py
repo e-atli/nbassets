@@ -1,5 +1,6 @@
 import os
 import glob
+import sys
 
 from pathlib import Path
 
@@ -17,7 +18,8 @@ for filename in Path('virtual_machines').glob('**/vm_*'):
         line = fp.readline()
         while line:
             # Uncomment the following line for progress information
-            #print(line)
+            sys.stdout.write("\r%d%%" % line)
+            sys.stdout.flush()
             try:
                 exec(line)
             except:
