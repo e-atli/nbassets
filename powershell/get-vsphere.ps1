@@ -23,8 +23,10 @@ Foreach ($CLUSTER in $CLUSTERS) {
   "CLUSTER = '$CLUSTER'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py"
 
   $VMS = Get-VM -Location $CLUSTER
+  $i = 0
 
   Foreach ($VM in $VMS) {
+    $i = $i+1
     $NAME = $VM.Name
     $VCPUS = $VM.NumCpu
     $MEMORY = $VM.MemoryMB
@@ -51,5 +53,7 @@ Foreach ($CLUSTER in $CLUSTERS) {
       Write-Output "INTERFACE = '$INTERFACE'",
         "MAC_ADDRESS = '$MAC'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
     }
+
+    Write-Progress -Activity "Inventory Cluster [$CLUSTER]" -Status "Reading virtual machine [$VM]" -PercentComplete ($i/$VMS.count*100)
   }
 }

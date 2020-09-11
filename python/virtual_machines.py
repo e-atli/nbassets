@@ -18,8 +18,9 @@ for filename in Path('virtual_machines').glob('**/vm_*'):
         line = fp.readline()
         while line:
             # Uncomment the following line for progress information
-            sys.stdout.write("\r" % line)
-            sys.stdout.flush()
+            print(line)
+            #sys.stdout.write("\r" % line)
+            #sys.stdout.flush()
             try:
                 exec(line)
             except:
