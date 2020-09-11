@@ -58,7 +58,7 @@ if [ $CREDFILE == "" ];
 fi
 
 # Check if CREDFILE really exists. If not, exit the script.
-if [ -n $CREDFILE ];
+if ! [ -r $CREDFILE ];
   then
     {
       echo "File $CREDFILE not found. Exit.";
