@@ -16,14 +16,12 @@ for filename in Path('virtual_machines').glob('**/vm_*'):
     with filename.open() as fp:
         line = fp.readline()
         while line:
-            print('\r', line.rstrip(), sep='', end='', flush=True)
-            #sys.stdout.write("\r" % line)
-            #sys.stdout.flush()
             try:
                 exec(line)
             except:
                 pass
             if (line.startswith('NAME')) :
+                print('\r', line.rstrip(), sep='', end='', flush=True)
                 try:
                     CLUSTERID = Cluster.objects.get(name=CLUSTER).id
                     try:
