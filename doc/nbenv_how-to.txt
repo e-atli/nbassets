@@ -1,0 +1,39 @@
+NBENV is a script to import customer assets into Netbox.
+
+Currently supported is
+- VMware vSphere via vCenter Server
+
+Requirements to run NBENV
+- Python 3.x
+- PowerShell with VMware.PowerCLI Module
+
+NBENV needs a customer description file, called environment file.
+This file can be stored anywhere, e.g. user home directory /home/USER.
+
+1) Create environment file
+
+nano /path/to/customer.env
+
+Adjust paths and names accordingly. Use vi if you like.
+Fill the describing variables, currently supported are:
+
+CREDFILE='/path/to/customer.cred'
+VCENTER[0]='https://vcenter-url01.fqdn.local'
+VCENTER[1]='https://vcenter-url02.fqdn.local'
+VCENTER[2]=...
+
+2) Export vCenter login credentials
+
+Enter PowerShell via pwsh
+
+Enter credentials and export to .cred File.
+Get-Credential | Export-Clixml -Path /path/to/customer.cred
+
+Leave PowerShell
+
+3) Run NBENV
+
+Change into the NBASSETS Path (e.g. /opt/nbassets) and run NBENV script
+
+cd /opt/nbassets
+./nbenv.sh /path/to/customer.env
