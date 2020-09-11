@@ -8,6 +8,7 @@ If ($VCENTER -eq $Null) { Exit }
 If ($CREDFILE -eq $Null) { Exit }
 If ($PATHPREFIX -eq $Null) { $PATHPREFIX = "." }
 
+$CREDENTIAL = Import-Clixml -Path $CREDFILE
 Connect-VIServer -Server $VCENTER -Credential $CREDENTIAL | Out-Null
 
 # Cluster ermitteln
