@@ -9,13 +9,13 @@ for filename in Path('clusters').glob('**/cl_*'):
     with filename.open() as fp:
         line = fp.readline()
         while line:
-            print(line)
             try:
                 exec(line)
             except:
                 pass
             if (line.startswith('NAME')) :
                 try:
+                    print(NAME, sep='', end='...                   \r', flush=True)
                     CLUSTER_TYPE = ClusterType.objects.get(name=TYPE)
                     NEW_CLUSTER = Cluster()
                     NEW_CLUSTER.type = CLUSTER_TYPE
