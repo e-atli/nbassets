@@ -1,16 +1,14 @@
 #!/usr/bin/pwsh
 
 $VCENTER = $args[0]
-$USER = $args[1]
-$PASS = $args[2]
-$PATHPREFIX = $args[3]
+$CREDFILE = $args[1]
+$PATHPREFIX = $args[2]
 
 If ($VCENTER -eq $Null) { Exit }
-If ($USER -eq $Null) { Exit }
-If ($PASS -eq $Null) { Exit }
+If ($CREDFILE -eq $Null) { Exit }
 If ($PATHPREFIX -eq $Null) { $PATHPREFIX = "." }
 
-Connect-VIServer -Server $VCENTER -User $USER -Password $PASS | Out-Null
+Connect-VIServer -Server $VCENTER -Credential $CREDENTIAL | Out-Null
 
 # Cluster ermitteln
 $CLUSTERS = Get-Cluster
@@ -19,10 +17,10 @@ Foreach ($CLUSTER in $CLUSTERS) {
   # Save Cluster Information
   "TYPE = 'VMware vSphere'" | Out-File -FilePath "$PATHPREFIX/clusters/cl_$CLUSTER.py"
   "NAME = '$CLUSTER'" | Out-File -FilePath "$PATHPREFIX/clusters/cl_$CLUSTER.py" -Append
-  
+
   # Save VM Information
   "CLUSTER = '$CLUSTER'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py"
-  
+
   $VMS = Get-VM -Location $CLUSTER
 
   Foreach ($VM in $VMS) {
@@ -41,10 +39,10 @@ Foreach ($CLUSTER in $CLUSTERS) {
       "STATUS = '$STATUS'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append
 
     IF ($ROLE) { "ROLE = '$ROLE'" | Out-File -FilePath "$PATHPREFIX/virtual_machines/vm_$CLUSTER.py" -Append }
-  
+
     # Netzwerkkarten ermitteln
     $NICS = Get-NetworkAdapter -VM $VM
-    
+
     Foreach ($NIC in $NICS) {
       $INTERFACE = $NIC.Name
       $MAC_ADDRESS = $NIC.MacAddress
