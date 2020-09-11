@@ -16,6 +16,7 @@ for filename in Path('virtual_machines').glob('**/vm_*'):
     with filename.open() as fp:
         line = fp.readline()
         while line:
+            # Uncomment the following line for progress information
             #print(line)
             try:
                 exec(line)
@@ -24,10 +25,13 @@ for filename in Path('virtual_machines').glob('**/vm_*'):
             if (line.startswith('NAME')) :
                 try:
                     CLUSTERID = Cluster.objects.get(name=CLUSTER).id
-                    NEW_VIRTUAL_MACHINE = VirtualMachine()
-                    NEW_VIRTUAL_MACHINE.name = NAME
-                    NEW_VIRTUAL_MACHINE.cluster_id = CLUSTERID
-                    NEW_VIRTUAL_MACHINE.save()
+                    try:
+                        VIRTUAL_MACHINE = VirtualMachine.objects.get(cluster=CLUSTERID,name=NAME)
+                    except:
+                        NEW_VIRTUAL_MACHINE = VirtualMachine()
+                        NEW_VIRTUAL_MACHINE.name = NAME
+                        NEW_VIRTUAL_MACHINE.cluster_id = CLUSTERID
+                        NEW_VIRTUAL_MACHINE.save()
                 except:
                     pass
             if (line.startswith('VCPUS')) :
@@ -64,19 +68,13 @@ for filename in Path('virtual_machines').glob('**/vm_*'):
                     pass
             if (line.startswith('STATUS')) :
                 if (STATUS == 'Online') or (STATUS == 'Active') or (STATUS == 'PoweredOn') :
-                    STATUS = 1
+                    STATUS = 'active'
                     CLUSTERID = Cluster.objects.get(name=CLUSTER).id
                     VIRTUAL_MACHINE = VirtualMachine.objects.get(cluster=CLUSTERID,name=NAME)
                     VIRTUAL_MACHINE.status = STATUS
                     VIRTUAL_MACHINE.save()
                 if (STATUS == 'Offline') or (STATUS == 'Inactive') or (STATUS == 'PoweredOff') :
-                    STATUS = 0
-                    CLUSTERID = Cluster.objects.get(name=CLUSTER).id
-                    VIRTUAL_MACHINE = VirtualMachine.objects.get(cluster=CLUSTERID,name=NAME)
-                    VIRTUAL_MACHINE.status = STATUS
-                    VIRTUAL_MACHINE.save()
-                if (STATUS == 'Staged') :
-                    STATUS = 3
+                    STATUS = 'offline'
                     CLUSTERID = Cluster.objects.get(name=CLUSTER).id
                     VIRTUAL_MACHINE = VirtualMachine.objects.get(cluster=CLUSTERID,name=NAME)
                     VIRTUAL_MACHINE.status = STATUS
