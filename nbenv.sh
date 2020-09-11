@@ -89,6 +89,7 @@ mkdir -p $PREFIX/clusters
 mkdir -p $PREFIX/virtual_machines
 
 # For each vCenter specified, call powershell with the inventory script
+echo
 for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
