@@ -9,7 +9,7 @@ echo "Creating Netbox Customer Environment"
 echo "===================================="
 
 export NETBOX_PATH="/opt/netbox/netbox"
-echo "Netbox Path: [$NETBOX_PATH]"
+echo "Netbox Path [$NETBOX_PATH]"
 echo "Customer Environment File [$1]"
 
 # Check, if given environment file really exists. If not, exit.
