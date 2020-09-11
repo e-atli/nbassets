@@ -7,10 +7,10 @@
 
 echo "Creating Netbox Customer Environment"
 echo "===================================="
+
 export NETBOX_PATH="/opt/netbox/netbox"
-echo "Netbox Path: $NETBOX_PATH"
-echo
-echo "Using Customer Environment File $1"
+echo "Netbox Path: [$NETBOX_PATH]"
+echo "Customer Environment File [$1]"
 
 # Check, if given environment file really exists. If not, exit.
 if [ -e "$1" ];
@@ -34,7 +34,6 @@ fi
 echo
 echo "Getting VMware Cluster Information"
 echo "=================================="
-echo
 echo "Following vCenters will be queried:"
 
 NUMVCENTERS=0
@@ -61,7 +60,7 @@ fi
 if ! [ -r $CREDFILE ];
   then
     {
-      echo "File $CREDFILE not found. Exit.";
+      echo "File [$CREDFILE] not found. Exit.";
       exit
     }
 fi
@@ -93,7 +92,7 @@ echo
 for (( i=0; i<$NUMVCENTERS; i++ ))
 {
   echo "Connecting to vCenter Server ${VCENTER[$i]}...";
-  echo "Saving Cluster and Virtual Machine information to PATH: $PREFIX"
+  echo "Saving Cluster and Virtual Machine information to Path: $PREFIX"
   time pwsh powershell/get-vsphere.ps1 ${VCENTER[$i]} $CREDFILE $PREFIX
 }
 
